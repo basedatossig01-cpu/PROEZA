@@ -1,0 +1,1898 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document id="root_doc">
+    <Schema id="Distrito_SAN_VICENTE_PANCHOLO.schema">
+      <SimpleField name="Cédula" type="double"/>
+      <SimpleField name="Nombres_y_" type="string"/>
+      <SimpleField name="Sexo" type="string"/>
+      <SimpleField name="Cambio_de_" type="string"/>
+      <SimpleField name="Titular_se" type="string"/>
+      <SimpleField name="Cédula_Ti" type="string"/>
+      <SimpleField name="ci_UNIF" type="double"/>
+      <SimpleField name="Situación" type="string"/>
+      <SimpleField name="Comunidad" type="string"/>
+      <SimpleField name="Modelo" type="string"/>
+      <SimpleField name="Departamen" type="string"/>
+      <SimpleField name="Distrito" type="string"/>
+      <SimpleField name="Localidad" type="string"/>
+      <SimpleField name="Teléfono" type="string"/>
+      <SimpleField name="Vivienda_L" type="double"/>
+      <SimpleField name="Vivienda_1" type="double"/>
+      <SimpleField name="Situaci_1" type="string"/>
+      <SimpleField name="Plantado_f" type="string"/>
+      <SimpleField name="año_usar" type="string"/>
+      <SimpleField name="año" type="double"/>
+      <SimpleField name="mes" type="string"/>
+      <SimpleField name="Grupo_de_p" type="string"/>
+      <SimpleField name="ETAPA_FAO" type="string"/>
+      <SimpleField name="Estado_del" type="string"/>
+      <SimpleField name="Empresa" type="string"/>
+      <SimpleField name="Lote" type="string"/>
+      <SimpleField name="X" type="double"/>
+      <SimpleField name="Y" type="double"/>
+      <SimpleField name="Sup_SIG" type="double"/>
+      <SimpleField name="Shape_Leng" type="double"/>
+      <SimpleField name="Shape_Area" type="double"/>
+      <SimpleField name="cedula" type="string"/>
+    </Schema>
+    <Document id="Distrito_SAN_VICENTE_PANCHOLO">
+      <name>Distrito_SAN VICENTE PANCHOLO</name>
+      <Placemark id="Distrito_SAN_VICENTE_PANCHOLO.1">
+        <ExtendedData>
+          <SchemaData schemaUrl="#Distrito_SAN_VICENTE_PANCHOLO.schema">
+            <SimpleData name="Cédula">5938194.00000000000</SimpleData>
+            <SimpleData name="Nombres_y_">OMILDA TALAVERA ESTECHE</SimpleData>
+            <SimpleData name="Sexo">Mujer</SimpleData>
+            <SimpleData name="Cambio_de_">NO</SimpleData>
+            <SimpleData name="Titular_se">NO</SimpleData>
+            <SimpleData name="ci_UNIF">5938194.00000000000</SimpleData>
+            <SimpleData name="Situación">NO</SimpleData>
+            <SimpleData name="Comunidad">Campesina</SimpleData>
+            <SimpleData name="Modelo">Modelo 1</SimpleData>
+            <SimpleData name="Departamen">SAN PEDRO</SimpleData>
+            <SimpleData name="Distrito">SAN VICENTE PANCHOLO</SimpleData>
+            <SimpleData name="Localidad">CALLE 25 DE DICIEMBRE SAN JOS? DEL NORTE</SimpleData>
+            <SimpleData name="Teléfono">0982286198</SimpleData>
+            <SimpleData name="Vivienda_L">-24.10520580000</SimpleData>
+            <SimpleData name="Vivienda_1">-56.18654480000</SimpleData>
+            <SimpleData name="Situaci_1">Pol?gono</SimpleData>
+            <SimpleData name="Plantado_f">2022/09/23</SimpleData>
+            <SimpleData name="año_usar">2022/09/23</SimpleData>
+            <SimpleData name="año">2022.00000000000</SimpleData>
+            <SimpleData name="mes">septiembre</SimpleData>
+            <SimpleData name="Grupo_de_p">Lote 1-G1</SimpleData>
+            <SimpleData name="ETAPA_FAO">Culminada</SimpleData>
+            <SimpleData name="Estado_del">Activo</SimpleData>
+            <SimpleData name="Empresa">Hyh Consultores SRL</SimpleData>
+            <SimpleData name="Lote">Lote 1</SimpleData>
+            <SimpleData name="X">-56.18605370000</SimpleData>
+            <SimpleData name="Y">-24.10735304000</SimpleData>
+            <SimpleData name="Sup_SIG">0.82455309526</SimpleData>
+            <SimpleData name="Shape_Leng">734.86348622700</SimpleData>
+            <SimpleData name="Shape_Area">8245.53095275000</SimpleData>
+            <SimpleData name="cedula">5938194</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>
+                -56.185748899935,-24.1088794994466,0
+                -56.1859821001287,-24.1089619003168,0
+                -56.1863478998336,-24.1058886002253,0
+                -56.1860883997493,-24.1058263005361,0
+                -56.1858836003589,-24.1079475995896,0
+                -56.185748899935,-24.1088794994466,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark id="Distrito_SAN_VICENTE_PANCHOLO.2">
+        <ExtendedData>
+          <SchemaData schemaUrl="#Distrito_SAN_VICENTE_PANCHOLO.schema">
+            <SimpleData name="Cédula">5591085.00000000000</SimpleData>
+            <SimpleData name="Nombres_y_">NATALICIO MANASES ALEGRE TOLEDO</SimpleData>
+            <SimpleData name="Sexo">Hombre</SimpleData>
+            <SimpleData name="Cambio_de_">NO</SimpleData>
+            <SimpleData name="Titular_se">NO</SimpleData>
+            <SimpleData name="ci_UNIF">5591085.00000000000</SimpleData>
+            <SimpleData name="Situación">NO</SimpleData>
+            <SimpleData name="Comunidad">Campesina</SimpleData>
+            <SimpleData name="Modelo">Modelo 6</SimpleData>
+            <SimpleData name="Departamen">SAN PEDRO</SimpleData>
+            <SimpleData name="Distrito">SAN VICENTE PANCHOLO</SimpleData>
+            <SimpleData name="Localidad">CALLE 1 DE MAYO-SAN JOS? DEL NORTE</SimpleData>
+            <SimpleData name="Teléfono">0982789497</SimpleData>
+            <SimpleData name="Vivienda_L">-24.13404080000</SimpleData>
+            <SimpleData name="Vivienda_1">-56.16779360000</SimpleData>
+            <SimpleData name="Situaci_1">Pol?gono</SimpleData>
+            <SimpleData name="Plantado_f">2023/08/31</SimpleData>
+            <SimpleData name="año_usar">2023/08/31</SimpleData>
+            <SimpleData name="año">2023.00000000000</SimpleData>
+            <SimpleData name="mes">agosto</SimpleData>
+            <SimpleData name="Grupo_de_p">Lote 1-G4</SimpleData>
+            <SimpleData name="ETAPA_FAO">Culminada</SimpleData>
+            <SimpleData name="Estado_del">Inactivo</SimpleData>
+            <SimpleData name="Empresa">Hyh Consultores SRL</SimpleData>
+            <SimpleData name="Lote">Lote 1</SimpleData>
+            <SimpleData name="X">-56.16636233000</SimpleData>
+            <SimpleData name="Y">-24.13308690000</SimpleData>
+            <SimpleData name="Sup_SIG">1.00334552346</SimpleData>
+            <SimpleData name="Shape_Leng">442.81755857400</SimpleData>
+            <SimpleData name="Shape_Area">10033.45523460000</SimpleData>
+            <SimpleData name="cedula">5591085</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>
+                -56.1655549992948,-24.1328916999615,0
+                -56.1668199991896,-24.1337650005953,0
+                -56.1671394006419,-24.1334099008383,0
+                -56.1660976998719,-24.132403099769,0
+                -56.1655549992948,-24.1328916999615,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark id="Distrito_SAN_VICENTE_PANCHOLO.3">
+        <ExtendedData>
+          <SchemaData schemaUrl="#Distrito_SAN_VICENTE_PANCHOLO.schema">
+            <SimpleData name="Cédula">6071748.00000000000</SimpleData>
+            <SimpleData name="Nombres_y_">LIZ PAOLA IBARRA DUARTE</SimpleData>
+            <SimpleData name="Sexo">Mujer</SimpleData>
+            <SimpleData name="Cambio_de_">NO</SimpleData>
+            <SimpleData name="Titular_se">NO</SimpleData>
+            <SimpleData name="ci_UNIF">6071748.00000000000</SimpleData>
+            <SimpleData name="Situación">NO</SimpleData>
+            <SimpleData name="Comunidad">Campesina</SimpleData>
+            <SimpleData name="Modelo">Modelo 1</SimpleData>
+            <SimpleData name="Departamen">SAN PEDRO</SimpleData>
+            <SimpleData name="Distrito">SAN VICENTE PANCHOLO</SimpleData>
+            <SimpleData name="Localidad">SAN JOS? DEL NORTE</SimpleData>
+            <SimpleData name="Teléfono">ND</SimpleData>
+            <SimpleData name="Vivienda_L">-24.12251520000</SimpleData>
+            <SimpleData name="Vivienda_1">-56.17917860000</SimpleData>
+            <SimpleData name="Situaci_1">Pol?gono</SimpleData>
+            <SimpleData name="Plantado_f">2023/08/31</SimpleData>
+            <SimpleData name="año_usar">2023/08/31</SimpleData>
+            <SimpleData name="año">2023.00000000000</SimpleData>
+            <SimpleData name="mes">agosto</SimpleData>
+            <SimpleData name="Grupo_de_p">Lote 1-G4</SimpleData>
+            <SimpleData name="ETAPA_FAO">Culminada</SimpleData>
+            <SimpleData name="Estado_del">Activo</SimpleData>
+            <SimpleData name="Empresa">Hyh Consultores SRL</SimpleData>
+            <SimpleData name="Lote">Lote 1</SimpleData>
+            <SimpleData name="X">-56.17838969000</SimpleData>
+            <SimpleData name="Y">-24.11404751000</SimpleData>
+            <SimpleData name="Sup_SIG">0.90066043992</SimpleData>
+            <SimpleData name="Shape_Leng">375.08414037400</SimpleData>
+            <SimpleData name="Shape_Area">9006.60439918000</SimpleData>
+            <SimpleData name="cedula">6071748</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>
+                -56.177861600072,-24.1143982001285,0
+                -56.1787903002346,-24.1145305006189,0
+                -56.1789317996321,-24.1137652996666,0
+                -56.1787323987529,-24.113679101228,0
+                -56.178486800083,-24.1136329013479,0
+                -56.1780110000925,-24.1135398002202,0
+                -56.1778988997363,-24.1140918011794,0
+                -56.177861600072,-24.1143982001285,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark id="Distrito_SAN_VICENTE_PANCHOLO.4">
+        <ExtendedData>
+          <SchemaData schemaUrl="#Distrito_SAN_VICENTE_PANCHOLO.schema">
+            <SimpleData name="Cédula">4771767.00000000000</SimpleData>
+            <SimpleData name="Nombres_y_">NORMA ELIZABETH GARCIA DENIS</SimpleData>
+            <SimpleData name="Sexo">Mujer</SimpleData>
+            <SimpleData name="Cambio_de_">NO</SimpleData>
+            <SimpleData name="Titular_se">NO</SimpleData>
+            <SimpleData name="ci_UNIF">4771767.00000000000</SimpleData>
+            <SimpleData name="Situación">NO</SimpleData>
+            <SimpleData name="Comunidad">Campesina</SimpleData>
+            <SimpleData name="Modelo">Modelo 4</SimpleData>
+            <SimpleData name="Departamen">SAN PEDRO</SimpleData>
+            <SimpleData name="Distrito">SAN VICENTE PANCHOLO</SimpleData>
+            <SimpleData name="Localidad">SAN VICENTE PANCHOLO/CALLE SAN JUAN</SimpleData>
+            <SimpleData name="Teléfono">ND</SimpleData>
+            <SimpleData name="Vivienda_L">-24.03229330000</SimpleData>
+            <SimpleData name="Vivienda_1">-56.08800930000</SimpleData>
+            <SimpleData name="Situaci_1">Pol?gono</SimpleData>
+            <SimpleData name="Plantado_f">2023/09/01</SimpleData>
+            <SimpleData name="año_usar">2023/09/01</SimpleData>
+            <SimpleData name="año">2023.00000000000</SimpleData>
+            <SimpleData name="mes">septiembre</SimpleData>
+            <SimpleData name="Grupo_de_p">Lote 1-G4</SimpleData>
+            <SimpleData name="ETAPA_FAO">Culminada</SimpleData>
+            <SimpleData name="Estado_del">Activo</SimpleData>
+            <SimpleData name="Empresa">Hyh Consultores SRL</SimpleData>
+            <SimpleData name="Lote">Lote 1</SimpleData>
+            <SimpleData name="X">-56.08428453000</SimpleData>
+            <SimpleData name="Y">-24.03964717000</SimpleData>
+            <SimpleData name="Sup_SIG">1.01755059083</SimpleData>
+            <SimpleData name="Shape_Leng">399.10993196400</SimpleData>
+            <SimpleData name="Shape_Area">10175.50590830000</SimpleData>
+            <SimpleData name="cedula">4771767</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>
+                -56.08376720033,-24.0399524999645,0
+                -56.0844656011693,-24.0402826010407,0
+                -56.0845080991067,-24.0402333003769,0
+                -56.0849344995258,-24.0393257003013,0
+                -56.0845085995629,-24.0392089996806,0
+                -56.0838859005317,-24.0391264003016,0
+                -56.0837315002813,-24.0398693007461,0
+                -56.08376720033,-24.0399524999645,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark id="Distrito_SAN_VICENTE_PANCHOLO.5">
+        <ExtendedData>
+          <SchemaData schemaUrl="#Distrito_SAN_VICENTE_PANCHOLO.schema">
+            <SimpleData name="Cédula">4105701.00000000000</SimpleData>
+            <SimpleData name="Nombres_y_">OLGA GARCETE</SimpleData>
+            <SimpleData name="Sexo">Mujer</SimpleData>
+            <SimpleData name="Cambio_de_">NO</SimpleData>
+            <SimpleData name="Titular_se">NO</SimpleData>
+            <SimpleData name="ci_UNIF">4105701.00000000000</SimpleData>
+            <SimpleData name="Situación">NO</SimpleData>
+            <SimpleData name="Comunidad">Campesina</SimpleData>
+            <SimpleData name="Modelo">Modelo 6</SimpleData>
+            <SimpleData name="Departamen">SAN PEDRO</SimpleData>
+            <SimpleData name="Distrito">SAN VICENTE PANCHOLO</SimpleData>
+            <SimpleData name="Localidad">CALLE SAN JUAN SAN VICENTE PANCHOLO</SimpleData>
+            <SimpleData name="Teléfono">0982675992</SimpleData>
+            <SimpleData name="Vivienda_L">-24.03018970000</SimpleData>
+            <SimpleData name="Vivienda_1">-56.08477550000</SimpleData>
+            <SimpleData name="Situaci_1">Pol?gono</SimpleData>
+            <SimpleData name="Plantado_f">2022/10/28</SimpleData>
+            <SimpleData name="año_usar">2022/10/28</SimpleData>
+            <SimpleData name="año">2022.00000000000</SimpleData>
+            <SimpleData name="mes">octubre</SimpleData>
+            <SimpleData name="Grupo_de_p">Lote 1-G2</SimpleData>
+            <SimpleData name="ETAPA_FAO">Culminada</SimpleData>
+            <SimpleData name="Estado_del">Activo</SimpleData>
+            <SimpleData name="Empresa">Hyh Consultores SRL</SimpleData>
+            <SimpleData name="Lote">Lote 1</SimpleData>
+            <SimpleData name="X">-56.08559798000</SimpleData>
+            <SimpleData name="Y">-24.02733866000</SimpleData>
+            <SimpleData name="Sup_SIG">0.92343288575</SimpleData>
+            <SimpleData name="Shape_Leng">511.29201496100</SimpleData>
+            <SimpleData name="Shape_Area">9234.32885762000</SimpleData>
+            <SimpleData name="cedula">4105701</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>
+                -56.0851554000375,-24.0282037000088,0
+                -56.0855923993249,-24.0283085003812,0
+                -56.0860258004505,-24.026438000722,0
+                -56.0856353003095,-24.0263372002186,0
+                -56.0851554000375,-24.0282037000088,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark id="Distrito_SAN_VICENTE_PANCHOLO.6">
+        <ExtendedData>
+          <SchemaData schemaUrl="#Distrito_SAN_VICENTE_PANCHOLO.schema">
+            <SimpleData name="Cédula">6360694.00000000000</SimpleData>
+            <SimpleData name="Nombres_y_">JENNY LARISSA ROJAS</SimpleData>
+            <SimpleData name="Sexo">Mujer</SimpleData>
+            <SimpleData name="Cambio_de_">NO</SimpleData>
+            <SimpleData name="Titular_se">NO</SimpleData>
+            <SimpleData name="ci_UNIF">6360694.00000000000</SimpleData>
+            <SimpleData name="Situación">NO</SimpleData>
+            <SimpleData name="Comunidad">Campesina</SimpleData>
+            <SimpleData name="Modelo">Modelo 3</SimpleData>
+            <SimpleData name="Departamen">SAN PEDRO</SimpleData>
+            <SimpleData name="Distrito">SAN VICENTE PANCHOLO</SimpleData>
+            <SimpleData name="Localidad">SAN JOS? DEL NORTE</SimpleData>
+            <SimpleData name="Teléfono">0986464905</SimpleData>
+            <SimpleData name="Vivienda_L">-24.12295480000</SimpleData>
+            <SimpleData name="Vivienda_1">-56.18204760000</SimpleData>
+            <SimpleData name="Situaci_1">Pol?gono</SimpleData>
+            <SimpleData name="Plantado_f">2023/08/31</SimpleData>
+            <SimpleData name="año_usar">2023/08/31</SimpleData>
+            <SimpleData name="año">2023.00000000000</SimpleData>
+            <SimpleData name="mes">agosto</SimpleData>
+            <SimpleData name="Grupo_de_p">Lote 1-G4</SimpleData>
+            <SimpleData name="ETAPA_FAO">Culminada</SimpleData>
+            <SimpleData name="Estado_del">Activo</SimpleData>
+            <SimpleData name="Empresa">Hyh Consultores SRL</SimpleData>
+            <SimpleData name="Lote">Lote 1</SimpleData>
+            <SimpleData name="X">-56.18177656000</SimpleData>
+            <SimpleData name="Y">-24.12459201000</SimpleData>
+            <SimpleData name="Sup_SIG">1.07073579578</SimpleData>
+            <SimpleData name="Shape_Leng">424.28461799700</SimpleData>
+            <SimpleData name="Shape_Area">10707.35795790000</SimpleData>
+            <SimpleData name="cedula">6360694</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>
+                -56.1812860012978,-24.1240872002332,0
+                -56.1811617005129,-24.1250700007724,0
+                -56.1824432996956,-24.1248899998347,0
+                -56.182415300121,-24.1242951005722,0
+                -56.1812860012978,-24.1240872002332,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark id="Distrito_SAN_VICENTE_PANCHOLO.7">
+        <ExtendedData>
+          <SchemaData schemaUrl="#Distrito_SAN_VICENTE_PANCHOLO.schema">
+            <SimpleData name="Cédula">3988189.00000000000</SimpleData>
+            <SimpleData name="Nombres_y_">BRUNO OZUNA MEZA</SimpleData>
+            <SimpleData name="Sexo">Hombre</SimpleData>
+            <SimpleData name="Cambio_de_">NO</SimpleData>
+            <SimpleData name="Titular_se">NO</SimpleData>
+            <SimpleData name="ci_UNIF">3988189.00000000000</SimpleData>
+            <SimpleData name="Situación">NO</SimpleData>
+            <SimpleData name="Comunidad">Campesina</SimpleData>
+            <SimpleData name="Modelo">Modelo 5</SimpleData>
+            <SimpleData name="Departamen">SAN PEDRO</SimpleData>
+            <SimpleData name="Distrito">SAN VICENTE PANCHOLO</SimpleData>
+            <SimpleData name="Localidad">SAN FRANCISCO CENTRO</SimpleData>
+            <SimpleData name="Teléfono">0986288660</SimpleData>
+            <SimpleData name="Vivienda_L">-24.02519160000</SimpleData>
+            <SimpleData name="Vivienda_1">-56.17061560000</SimpleData>
+            <SimpleData name="Situaci_1">Pol?gono</SimpleData>
+            <SimpleData name="Plantado_f">2022/12/17</SimpleData>
+            <SimpleData name="año_usar">2022/12/17</SimpleData>
+            <SimpleData name="año">2022.00000000000</SimpleData>
+            <SimpleData name="mes">diciembre</SimpleData>
+            <SimpleData name="Grupo_de_p">Lote 1-G2</SimpleData>
+            <SimpleData name="ETAPA_FAO">Culminada</SimpleData>
+            <SimpleData name="Estado_del">Activo</SimpleData>
+            <SimpleData name="Empresa">Hyh Consultores SRL</SimpleData>
+            <SimpleData name="Lote">Lote 1</SimpleData>
+            <SimpleData name="X">-56.17431534000</SimpleData>
+            <SimpleData name="Y">-24.02149738000</SimpleData>
+            <SimpleData name="Sup_SIG">0.76885937237</SimpleData>
+            <SimpleData name="Shape_Leng">364.31307956100</SimpleData>
+            <SimpleData name="Shape_Area">7688.59372374000</SimpleData>
+            <SimpleData name="cedula">3988189</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>
+                -56.1736445016076,-24.0216437000628,0
+                -56.1741793008041,-24.0220468011784,0
+                -56.1749875013252,-24.0213184006952,0
+                -56.1744621998011,-24.0209615006717,0
+                -56.1736445016076,-24.0216437000628,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark id="Distrito_SAN_VICENTE_PANCHOLO.8">
+        <ExtendedData>
+          <SchemaData schemaUrl="#Distrito_SAN_VICENTE_PANCHOLO.schema">
+            <SimpleData name="Cédula">7740687.00000000000</SimpleData>
+            <SimpleData name="Nombres_y_">LOURDES RAMIREZ MORALES</SimpleData>
+            <SimpleData name="Sexo">Mujer</SimpleData>
+            <SimpleData name="Cambio_de_">SI</SimpleData>
+            <SimpleData name="Titular_se">SABINA MONTIEL CHAMORRO</SimpleData>
+            <SimpleData name="Cédula_Ti">6870308</SimpleData>
+            <SimpleData name="ci_UNIF">6870308.00000000000</SimpleData>
+            <SimpleData name="Situación">Migr? de la comunidad</SimpleData>
+            <SimpleData name="Comunidad">Ind?gena</SimpleData>
+            <SimpleData name="Modelo">Modelo 1</SimpleData>
+            <SimpleData name="Departamen">SAN PEDRO</SimpleData>
+            <SimpleData name="Distrito">SAN VICENTE PANCHOLO</SimpleData>
+            <SimpleData name="Localidad">COM INDIG YPOTYJU</SimpleData>
+            <SimpleData name="Teléfono">0982326314</SimpleData>
+            <SimpleData name="Vivienda_L">-23.93435340000</SimpleData>
+            <SimpleData name="Vivienda_1">-56.01078270000</SimpleData>
+            <SimpleData name="Situaci_1">Pol?gono</SimpleData>
+            <SimpleData name="Plantado_f">2022/10/28</SimpleData>
+            <SimpleData name="año_usar">2022/10/28</SimpleData>
+            <SimpleData name="año">2022.00000000000</SimpleData>
+            <SimpleData name="mes">octubre</SimpleData>
+            <SimpleData name="Grupo_de_p">Lote 1-G3</SimpleData>
+            <SimpleData name="ETAPA_FAO">Culminada</SimpleData>
+            <SimpleData name="Estado_del">Inactivo</SimpleData>
+            <SimpleData name="Empresa">Hyh Consultores SRL</SimpleData>
+            <SimpleData name="Lote">Lote 1</SimpleData>
+            <SimpleData name="X">-56.01002964000</SimpleData>
+            <SimpleData name="Y">-23.94166514000</SimpleData>
+            <SimpleData name="Sup_SIG">0.80616471146</SimpleData>
+            <SimpleData name="Shape_Leng">404.47410476400</SimpleData>
+            <SimpleData name="Shape_Area">8061.64711445000</SimpleData>
+            <SimpleData name="cedula">7740687</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>
+                -56.0097274999437,-23.9410110993548,0
+                -56.0098002012062,-23.9423717001826,0
+                -56.0103139009699,-23.9423063015549,0
+                -56.0102868999043,-23.9410067001573,0
+                -56.0097274999437,-23.9410110993548,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark id="Distrito_SAN_VICENTE_PANCHOLO.9">
+        <ExtendedData>
+          <SchemaData schemaUrl="#Distrito_SAN_VICENTE_PANCHOLO.schema">
+            <SimpleData name="Cédula">5268181.00000000000</SimpleData>
+            <SimpleData name="Nombres_y_">HERMELINDA ALBERT PEREZ</SimpleData>
+            <SimpleData name="Sexo">Mujer</SimpleData>
+            <SimpleData name="Cambio_de_">NO</SimpleData>
+            <SimpleData name="Titular_se">NO</SimpleData>
+            <SimpleData name="ci_UNIF">5268181.00000000000</SimpleData>
+            <SimpleData name="Situación">NO</SimpleData>
+            <SimpleData name="Comunidad">Campesina</SimpleData>
+            <SimpleData name="Modelo">Modelo 2</SimpleData>
+            <SimpleData name="Departamen">SAN PEDRO</SimpleData>
+            <SimpleData name="Distrito">SAN VICENTE PANCHOLO</SimpleData>
+            <SimpleData name="Localidad">CALLE SAN JUAN SAN JOS? DEL NORTE</SimpleData>
+            <SimpleData name="Teléfono">0975317914</SimpleData>
+            <SimpleData name="Vivienda_L">-24.08852720000</SimpleData>
+            <SimpleData name="Vivienda_1">-56.14701750000</SimpleData>
+            <SimpleData name="Situaci_1">Pol?gono</SimpleData>
+            <SimpleData name="Plantado_f">2022/09/23</SimpleData>
+            <SimpleData name="año_usar">2022/09/23</SimpleData>
+            <SimpleData name="año">2022.00000000000</SimpleData>
+            <SimpleData name="mes">septiembre</SimpleData>
+            <SimpleData name="Grupo_de_p">Lote 1-G1</SimpleData>
+            <SimpleData name="ETAPA_FAO">Culminada</SimpleData>
+            <SimpleData name="Estado_del">Activo</SimpleData>
+            <SimpleData name="Empresa">Hyh Consultores SRL</SimpleData>
+            <SimpleData name="Lote">Lote 1</SimpleData>
+            <SimpleData name="X">-56.14541529000</SimpleData>
+            <SimpleData name="Y">-24.08690521000</SimpleData>
+            <SimpleData name="Sup_SIG">1.12283356832</SimpleData>
+            <SimpleData name="Shape_Leng">476.71498907500</SimpleData>
+            <SimpleData name="Shape_Area">11228.33568340000</SimpleData>
+            <SimpleData name="cedula">5268181</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>
+                -56.1452965999697,-24.0872273005185,0
+                -56.1458813001688,-24.0876676007199,0
+                -56.1462342011841,-24.0873086001409,0
+                -56.1450951002288,-24.0861464000435,0
+                -56.144582199563,-24.0865356003485,0
+                -56.1452965999697,-24.0872273005185,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark id="Distrito_SAN_VICENTE_PANCHOLO.10">
+        <ExtendedData>
+          <SchemaData schemaUrl="#Distrito_SAN_VICENTE_PANCHOLO.schema">
+            <SimpleData name="Cédula">7171498.00000000000</SimpleData>
+            <SimpleData name="Nombres_y_">FRANCISCA ARZAMENDIA ALARCON</SimpleData>
+            <SimpleData name="Sexo">Mujer</SimpleData>
+            <SimpleData name="Cambio_de_">NO</SimpleData>
+            <SimpleData name="Titular_se">NO</SimpleData>
+            <SimpleData name="ci_UNIF">7171498.00000000000</SimpleData>
+            <SimpleData name="Situación">NO</SimpleData>
+            <SimpleData name="Comunidad">Campesina</SimpleData>
+            <SimpleData name="Modelo">Modelo 1</SimpleData>
+            <SimpleData name="Departamen">SAN PEDRO</SimpleData>
+            <SimpleData name="Distrito">SAN VICENTE PANCHOLO</SimpleData>
+            <SimpleData name="Localidad">CALLE LIBERTAD SAN JOS? DEL NORTE</SimpleData>
+            <SimpleData name="Teléfono">0983088009</SimpleData>
+            <SimpleData name="Vivienda_L">-24.07740290000</SimpleData>
+            <SimpleData name="Vivienda_1">-56.18442130000</SimpleData>
+            <SimpleData name="Situaci_1">Pol?gono</SimpleData>
+            <SimpleData name="Plantado_f">2022/09/23</SimpleData>
+            <SimpleData name="año_usar">2022/09/23</SimpleData>
+            <SimpleData name="año">2022.00000000000</SimpleData>
+            <SimpleData name="mes">septiembre</SimpleData>
+            <SimpleData name="Grupo_de_p">Lote 1-G1</SimpleData>
+            <SimpleData name="ETAPA_FAO">Culminada</SimpleData>
+            <SimpleData name="Estado_del">Activo</SimpleData>
+            <SimpleData name="Empresa">Hyh Consultores SRL</SimpleData>
+            <SimpleData name="Lote">Lote 1</SimpleData>
+            <SimpleData name="X">-56.18006119000</SimpleData>
+            <SimpleData name="Y">-24.07830430000</SimpleData>
+            <SimpleData name="Sup_SIG">0.89658970680</SimpleData>
+            <SimpleData name="Shape_Leng">380.00749924700</SimpleData>
+            <SimpleData name="Shape_Area">8965.89706787000</SimpleData>
+            <SimpleData name="cedula">7171498</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>
+                -56.1795620992319,-24.077925101184,0
+                -56.1797024007566,-24.0788336009454,0
+                -56.1805342999382,-24.0786916007396,0
+                -56.1804522995713,-24.0777862011447,0
+                -56.1795620992319,-24.077925101184,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark id="Distrito_SAN_VICENTE_PANCHOLO.11">
+        <ExtendedData>
+          <SchemaData schemaUrl="#Distrito_SAN_VICENTE_PANCHOLO.schema">
+            <SimpleData name="Cédula">7908365.00000000000</SimpleData>
+            <SimpleData name="Nombres_y_">MARIA ANGELINA DOSANTOS ORREGO</SimpleData>
+            <SimpleData name="Sexo">Mujer</SimpleData>
+            <SimpleData name="Cambio_de_">NO</SimpleData>
+            <SimpleData name="Titular_se">NO</SimpleData>
+            <SimpleData name="ci_UNIF">7908365.00000000000</SimpleData>
+            <SimpleData name="Situación">NO</SimpleData>
+            <SimpleData name="Comunidad">Campesina</SimpleData>
+            <SimpleData name="Modelo">Modelo 4</SimpleData>
+            <SimpleData name="Departamen">SAN PEDRO</SimpleData>
+            <SimpleData name="Distrito">SAN VICENTE PANCHOLO</SimpleData>
+            <SimpleData name="Localidad">CALLE 6 DE ENERO-SAN JOS? DEL NORTE</SimpleData>
+            <SimpleData name="Teléfono">0986280166</SimpleData>
+            <SimpleData name="Vivienda_L">-24.07798680000</SimpleData>
+            <SimpleData name="Vivienda_1">-56.19887670000</SimpleData>
+            <SimpleData name="Situaci_1">Pol?gono</SimpleData>
+            <SimpleData name="Plantado_f">2023/09/01</SimpleData>
+            <SimpleData name="año_usar">2023/09/01</SimpleData>
+            <SimpleData name="año">2023.00000000000</SimpleData>
+            <SimpleData name="mes">septiembre</SimpleData>
+            <SimpleData name="Grupo_de_p">Lote 1-G4</SimpleData>
+            <SimpleData name="ETAPA_FAO">Culminada</SimpleData>
+            <SimpleData name="Estado_del">Activo</SimpleData>
+            <SimpleData name="Empresa">Hyh Consultores SRL</SimpleData>
+            <SimpleData name="Lote">Lote 1</SimpleData>
+            <SimpleData name="X">-56.19468491000</SimpleData>
+            <SimpleData name="Y">-24.07934194000</SimpleData>
+            <SimpleData name="Sup_SIG">1.00086571266</SimpleData>
+            <SimpleData name="Shape_Leng">400.59146241200</SimpleData>
+            <SimpleData name="Shape_Area">10008.65712660000</SimpleData>
+            <SimpleData name="cedula">7908365</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>
+                -56.1940857998359,-24.0790102999913,0
+                -56.1943038001975,-24.0798465007462,0
+                -56.195264199917,-24.0797301995077,0
+                -56.195054401187,-24.0787959003991,0
+                -56.1940857998359,-24.0790102999913,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark id="Distrito_SAN_VICENTE_PANCHOLO.12">
+        <ExtendedData>
+          <SchemaData schemaUrl="#Distrito_SAN_VICENTE_PANCHOLO.schema">
+            <SimpleData name="Cédula">6216964.00000000000</SimpleData>
+            <SimpleData name="Nombres_y_">SONIA BARRIOS PERALTA</SimpleData>
+            <SimpleData name="Sexo">Mujer</SimpleData>
+            <SimpleData name="Cambio_de_">NO</SimpleData>
+            <SimpleData name="Titular_se">NO</SimpleData>
+            <SimpleData name="ci_UNIF">6216964.00000000000</SimpleData>
+            <SimpleData name="Situación">NO</SimpleData>
+            <SimpleData name="Comunidad">Campesina</SimpleData>
+            <SimpleData name="Modelo">Modelo 5</SimpleData>
+            <SimpleData name="Departamen">SAN PEDRO</SimpleData>
+            <SimpleData name="Distrito">SAN VICENTE PANCHOLO</SimpleData>
+            <SimpleData name="Localidad">SAN JOS? DEL NORTE</SimpleData>
+            <SimpleData name="Teléfono">0983592142</SimpleData>
+            <SimpleData name="Vivienda_L">-24.11593500000</SimpleData>
+            <SimpleData name="Vivienda_1">-56.17449560000</SimpleData>
+            <SimpleData name="Situaci_1">Pol?gono</SimpleData>
+            <SimpleData name="Plantado_f">2023/08/31</SimpleData>
+            <SimpleData name="año_usar">2023/08/31</SimpleData>
+            <SimpleData name="año">2023.00000000000</SimpleData>
+            <SimpleData name="mes">agosto</SimpleData>
+            <SimpleData name="Grupo_de_p">Lote 1-G4</SimpleData>
+            <SimpleData name="ETAPA_FAO">Culminada</SimpleData>
+            <SimpleData name="Estado_del">Activo</SimpleData>
+            <SimpleData name="Empresa">Hyh Consultores SRL</SimpleData>
+            <SimpleData name="Lote">Lote 1</SimpleData>
+            <SimpleData name="X">-56.17481063000</SimpleData>
+            <SimpleData name="Y">-24.11462065000</SimpleData>
+            <SimpleData name="Sup_SIG">0.71180871289</SimpleData>
+            <SimpleData name="Shape_Leng">417.04222952100</SimpleData>
+            <SimpleData name="Shape_Area">7118.08712898000</SimpleData>
+            <SimpleData name="cedula">6216964</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>
+                -56.1743199998373,-24.1151700004222,0
+                -56.1747216999914,-24.1154067006117,0
+                -56.1752949997575,-24.1139683000192,0
+                -56.1749399996144,-24.1138401000171,0
+                -56.1743199998373,-24.1151700004222,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark id="Distrito_SAN_VICENTE_PANCHOLO.13">
+        <ExtendedData>
+          <SchemaData schemaUrl="#Distrito_SAN_VICENTE_PANCHOLO.schema">
+            <SimpleData name="Cédula">7874796.00000000000</SimpleData>
+            <SimpleData name="Nombres_y_">CRISTOBAL LOPEZ</SimpleData>
+            <SimpleData name="Sexo">Hombre</SimpleData>
+            <SimpleData name="Cambio_de_">NO</SimpleData>
+            <SimpleData name="Titular_se">NO</SimpleData>
+            <SimpleData name="ci_UNIF">7874796.00000000000</SimpleData>
+            <SimpleData name="Situación">NO</SimpleData>
+            <SimpleData name="Comunidad">Campesina</SimpleData>
+            <SimpleData name="Modelo">Modelo 6</SimpleData>
+            <SimpleData name="Departamen">SAN PEDRO</SimpleData>
+            <SimpleData name="Distrito">SAN VICENTE PANCHOLO</SimpleData>
+            <SimpleData name="Localidad">CALLE LIBERTAD SAN JOS? DEL NORTE</SimpleData>
+            <SimpleData name="Teléfono">0982485403</SimpleData>
+            <SimpleData name="Vivienda_L">-24.08227300000</SimpleData>
+            <SimpleData name="Vivienda_1">-56.18707720000</SimpleData>
+            <SimpleData name="Situaci_1">Pol?gono</SimpleData>
+            <SimpleData name="Plantado_f">2022/09/23</SimpleData>
+            <SimpleData name="año_usar">2022/09/23</SimpleData>
+            <SimpleData name="año">2022.00000000000</SimpleData>
+            <SimpleData name="mes">septiembre</SimpleData>
+            <SimpleData name="Grupo_de_p">Lote 1-G1</SimpleData>
+            <SimpleData name="ETAPA_FAO">Culminada</SimpleData>
+            <SimpleData name="Estado_del">Activo</SimpleData>
+            <SimpleData name="Empresa">Hyh Consultores SRL</SimpleData>
+            <SimpleData name="Lote">Lote 1</SimpleData>
+            <SimpleData name="X">-56.18285882000</SimpleData>
+            <SimpleData name="Y">-24.08871356000</SimpleData>
+            <SimpleData name="Sup_SIG">1.04964505130</SimpleData>
+            <SimpleData name="Shape_Leng">405.47141081000</SimpleData>
+            <SimpleData name="Shape_Area">10496.45051290000</SimpleData>
+            <SimpleData name="cedula">7874796</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>
+                -56.1824332003196,-24.0889368015836,0
+                -56.1825318999996,-24.089298100624,0
+                -56.1825332002503,-24.0892966002075,0
+                -56.1833049995661,-24.0891999992208,0
+                -56.1833048996763,-24.0881633002735,0
+                -56.1829512998331,-24.0881769996854,0
+                -56.1823582002994,-24.088310400104,0
+                -56.1823107012479,-24.0883808009443,0
+                -56.1823793992804,-24.0886543993843,0
+                -56.1824332003196,-24.0889368015836,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark id="Distrito_SAN_VICENTE_PANCHOLO.14">
+        <ExtendedData>
+          <SchemaData schemaUrl="#Distrito_SAN_VICENTE_PANCHOLO.schema">
+            <SimpleData name="Cédula">5622984.00000000000</SimpleData>
+            <SimpleData name="Nombres_y_">TERESA CONCEPCION CABRERA FLECHA</SimpleData>
+            <SimpleData name="Sexo">Mujer</SimpleData>
+            <SimpleData name="Cambio_de_">NO</SimpleData>
+            <SimpleData name="Titular_se">NO</SimpleData>
+            <SimpleData name="ci_UNIF">5622984.00000000000</SimpleData>
+            <SimpleData name="Situación">NO</SimpleData>
+            <SimpleData name="Comunidad">Campesina</SimpleData>
+            <SimpleData name="Modelo">Modelo 3</SimpleData>
+            <SimpleData name="Departamen">SAN PEDRO</SimpleData>
+            <SimpleData name="Distrito">SAN VICENTE PANCHOLO</SimpleData>
+            <SimpleData name="Localidad">CALLE UNI?N</SimpleData>
+            <SimpleData name="Teléfono">0983773616</SimpleData>
+            <SimpleData name="Vivienda_L">-24.07020700000</SimpleData>
+            <SimpleData name="Vivienda_1">-56.20985300000</SimpleData>
+            <SimpleData name="Situaci_1">Pol?gono</SimpleData>
+            <SimpleData name="Plantado_f">2022/09/16</SimpleData>
+            <SimpleData name="año_usar">2022/09/16</SimpleData>
+            <SimpleData name="año">2022.00000000000</SimpleData>
+            <SimpleData name="mes">septiembre</SimpleData>
+            <SimpleData name="Grupo_de_p">Lote 1-G1</SimpleData>
+            <SimpleData name="ETAPA_FAO">Culminada</SimpleData>
+            <SimpleData name="Estado_del">Activo</SimpleData>
+            <SimpleData name="Empresa">Hyh Consultores SRL</SimpleData>
+            <SimpleData name="Lote">Lote 1</SimpleData>
+            <SimpleData name="X">-56.20893151000</SimpleData>
+            <SimpleData name="Y">-24.06933215000</SimpleData>
+            <SimpleData name="Sup_SIG">1.35577685318</SimpleData>
+            <SimpleData name="Shape_Leng">538.20167553000</SimpleData>
+            <SimpleData name="Shape_Area">13557.76853160000</SimpleData>
+            <SimpleData name="cedula">5622984</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>
+                -56.2082137002493,-24.0698219004532,0
+                -56.2085091005745,-24.0700885017953,0
+                -56.2087133002537,-24.0699511998792,0
+                -56.2088764006667,-24.0698128009627,0
+                -56.2090612004009,-24.0696570008158,0
+                -56.2092105001139,-24.0695513998827,0
+                -56.2094334002663,-24.06939210045,0
+                -56.2095568000406,-24.0692528001816,0
+                -56.2096451007307,-24.0692014003588,0
+                -56.2099053015072,-24.0687466009423,0
+                -56.2098649984833,-24.0687433012799,0
+                -56.209736199895,-24.0686266003873,0
+                -56.2096166000423,-24.0684997005258,0
+                -56.209503000239,-24.0686287003559,0
+                -56.2093393996596,-24.0687693002364,0
+                -56.2091947996784,-24.0689545005915,0
+                -56.2087268998481,-24.0690486999418,0
+                -56.2085312001357,-24.0690859998454,0
+                -56.2083253008974,-24.0692660999672,0
+                -56.2081138004911,-24.0694641003896,0
+                -56.2080119999825,-24.0696446999983,0
+                -56.2082137002493,-24.0698219004532,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark id="Distrito_SAN_VICENTE_PANCHOLO.15">
+        <ExtendedData>
+          <SchemaData schemaUrl="#Distrito_SAN_VICENTE_PANCHOLO.schema">
+            <SimpleData name="Cédula">6191569.00000000000</SimpleData>
+            <SimpleData name="Nombres_y_">EVANY MARIA BENITEZ VARGAS</SimpleData>
+            <SimpleData name="Sexo">Mujer</SimpleData>
+            <SimpleData name="Cambio_de_">NO</SimpleData>
+            <SimpleData name="Titular_se">NO</SimpleData>
+            <SimpleData name="ci_UNIF">6191569.00000000000</SimpleData>
+            <SimpleData name="Situación">NO</SimpleData>
+            <SimpleData name="Comunidad">Campesina</SimpleData>
+            <SimpleData name="Modelo">Modelo 5</SimpleData>
+            <SimpleData name="Departamen">SAN PEDRO</SimpleData>
+            <SimpleData name="Distrito">SAN VICENTE PANCHOLO</SimpleData>
+            <SimpleData name="Localidad">CALLE SANTA ROSA COMUNIDAD SAN GABRIEL</SimpleData>
+            <SimpleData name="Teléfono">0984142257</SimpleData>
+            <SimpleData name="Vivienda_L">-23.98505450000</SimpleData>
+            <SimpleData name="Vivienda_1">-56.14926800000</SimpleData>
+            <SimpleData name="Situaci_1">Pol?gono</SimpleData>
+            <SimpleData name="Plantado_f">1899/12/30</SimpleData>
+            <SimpleData name="año_usar">1899/12/30</SimpleData>
+            <SimpleData name="año">1900.00000000000</SimpleData>
+            <SimpleData name="mes">enero</SimpleData>
+            <SimpleData name="Grupo_de_p">Lote 1-G2</SimpleData>
+            <SimpleData name="ETAPA_FAO">Culminada</SimpleData>
+            <SimpleData name="Estado_del">Activo</SimpleData>
+            <SimpleData name="Empresa">Hyh Consultores SRL</SimpleData>
+            <SimpleData name="Lote">Lote 1</SimpleData>
+            <SimpleData name="X">-56.14742480000</SimpleData>
+            <SimpleData name="Y">-23.98509550000</SimpleData>
+            <SimpleData name="Sup_SIG">0.84283464533</SimpleData>
+            <SimpleData name="Shape_Leng">368.36118145700</SimpleData>
+            <SimpleData name="Shape_Area">8428.34645322000</SimpleData>
+            <SimpleData name="cedula">6191569</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>
+                -56.146926399358,-23.9854255006746,0
+                -56.1478073001604,-23.9856102006404,0
+                -56.1478930001799,-23.9847410000871,0
+                -56.1470698998541,-23.9845842002062,0
+                -56.146926399358,-23.9854255006746,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark id="Distrito_SAN_VICENTE_PANCHOLO.16">
+        <ExtendedData>
+          <SchemaData schemaUrl="#Distrito_SAN_VICENTE_PANCHOLO.schema">
+            <SimpleData name="Cédula">5268272.00000000000</SimpleData>
+            <SimpleData name="Nombres_y_">LUISA RAQUEL CACERES FRANCO</SimpleData>
+            <SimpleData name="Sexo">Mujer</SimpleData>
+            <SimpleData name="Cambio_de_">NO</SimpleData>
+            <SimpleData name="Titular_se">NO</SimpleData>
+            <SimpleData name="ci_UNIF">5268272.00000000000</SimpleData>
+            <SimpleData name="Situación">NO</SimpleData>
+            <SimpleData name="Comunidad">Campesina</SimpleData>
+            <SimpleData name="Modelo">Modelo 3</SimpleData>
+            <SimpleData name="Departamen">SAN PEDRO</SimpleData>
+            <SimpleData name="Distrito">SAN VICENTE PANCHOLO</SimpleData>
+            <SimpleData name="Localidad">SAN VICENTE PANCHOLO/PRIMERO DE MARZO</SimpleData>
+            <SimpleData name="Teléfono">0975344277</SimpleData>
+            <SimpleData name="Vivienda_L">-24.03076120000</SimpleData>
+            <SimpleData name="Vivienda_1">-56.11455050000</SimpleData>
+            <SimpleData name="Situaci_1">Pol?gono</SimpleData>
+            <SimpleData name="Plantado_f">2023/09/01</SimpleData>
+            <SimpleData name="año_usar">2023/09/01</SimpleData>
+            <SimpleData name="año">2023.00000000000</SimpleData>
+            <SimpleData name="mes">septiembre</SimpleData>
+            <SimpleData name="Grupo_de_p">Lote 1-G4</SimpleData>
+            <SimpleData name="ETAPA_FAO">Culminada</SimpleData>
+            <SimpleData name="Estado_del">Activo</SimpleData>
+            <SimpleData name="Empresa">Hyh Consultores SRL</SimpleData>
+            <SimpleData name="Lote">Lote 1</SimpleData>
+            <SimpleData name="X">-56.11055712000</SimpleData>
+            <SimpleData name="Y">-24.03033422000</SimpleData>
+            <SimpleData name="Sup_SIG">1.11044821846</SimpleData>
+            <SimpleData name="Shape_Leng">433.59929637200</SimpleData>
+            <SimpleData name="Shape_Area">11104.48218470000</SimpleData>
+            <SimpleData name="cedula">5268272</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>
+                -56.1098249999974,-24.0306000003981,0
+                -56.1111182993085,-24.0308034009354,0
+                -56.1113015998334,-24.0301023016871,0
+                -56.1100182014294,-24.0298385015641,0
+                -56.1098249999974,-24.0306000003981,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark id="Distrito_SAN_VICENTE_PANCHOLO.17">
+        <ExtendedData>
+          <SchemaData schemaUrl="#Distrito_SAN_VICENTE_PANCHOLO.schema">
+            <SimpleData name="Cédula">7200568.00000000000</SimpleData>
+            <SimpleData name="Nombres_y_">RAMONA GONZALEZ NU?EZ</SimpleData>
+            <SimpleData name="Sexo">Mujer</SimpleData>
+            <SimpleData name="Cambio_de_">NO</SimpleData>
+            <SimpleData name="Titular_se">NO</SimpleData>
+            <SimpleData name="ci_UNIF">7200568.00000000000</SimpleData>
+            <SimpleData name="Situación">NO</SimpleData>
+            <SimpleData name="Comunidad">Ind?gena</SimpleData>
+            <SimpleData name="Modelo">Modelo 6</SimpleData>
+            <SimpleData name="Departamen">SAN PEDRO</SimpleData>
+            <SimpleData name="Distrito">SAN VICENTE PANCHOLO</SimpleData>
+            <SimpleData name="Localidad">COM INDIG YPOTYJU</SimpleData>
+            <SimpleData name="Teléfono">0984317038</SimpleData>
+            <SimpleData name="Vivienda_L">-23.93433270000</SimpleData>
+            <SimpleData name="Vivienda_1">-56.01071120000</SimpleData>
+            <SimpleData name="Situaci_1">Pol?gono</SimpleData>
+            <SimpleData name="Plantado_f">2022/10/28</SimpleData>
+            <SimpleData name="año_usar">2022/10/28</SimpleData>
+            <SimpleData name="año">2022.00000000000</SimpleData>
+            <SimpleData name="mes">octubre</SimpleData>
+            <SimpleData name="Grupo_de_p">Lote 1-G2</SimpleData>
+            <SimpleData name="ETAPA_FAO">Culminada</SimpleData>
+            <SimpleData name="Estado_del">Inactivo</SimpleData>
+            <SimpleData name="Empresa">Hyh Consultores SRL</SimpleData>
+            <SimpleData name="Lote">Lote 1</SimpleData>
+            <SimpleData name="X">-56.00718194000</SimpleData>
+            <SimpleData name="Y">-23.93229885000</SimpleData>
+            <SimpleData name="Sup_SIG">0.90266829288</SimpleData>
+            <SimpleData name="Shape_Leng">464.56316108600</SimpleData>
+            <SimpleData name="Shape_Area">9026.68292876000</SimpleData>
+            <SimpleData name="cedula">7200568</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>
+                -56.0063152992343,-23.9325358013896,0
+                -56.0063740998557,-23.9325575004027,0
+                -56.0080754001927,-23.9324761006402,0
+                -56.0081044999777,-23.932034501404,0
+                -56.0078282997736,-23.9320399008217,0
+                -56.0062587002349,-23.932139100079,0
+                -56.0062357002224,-23.9324668001838,0
+                -56.0063152992343,-23.9325358013896,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark id="Distrito_SAN_VICENTE_PANCHOLO.18">
+        <ExtendedData>
+          <SchemaData schemaUrl="#Distrito_SAN_VICENTE_PANCHOLO.schema">
+            <SimpleData name="Cédula">5828676.00000000000</SimpleData>
+            <SimpleData name="Nombres_y_">MARIELA SANCHEZ BARRETO</SimpleData>
+            <SimpleData name="Sexo">Mujer</SimpleData>
+            <SimpleData name="Cambio_de_">NO</SimpleData>
+            <SimpleData name="Titular_se">NO</SimpleData>
+            <SimpleData name="ci_UNIF">5828676.00000000000</SimpleData>
+            <SimpleData name="Situación">NO</SimpleData>
+            <SimpleData name="Comunidad">Campesina</SimpleData>
+            <SimpleData name="Modelo">Modelo 5</SimpleData>
+            <SimpleData name="Departamen">SAN PEDRO</SimpleData>
+            <SimpleData name="Distrito">SAN VICENTE PANCHOLO</SimpleData>
+            <SimpleData name="Localidad">SAN JOS? DEL NORTE</SimpleData>
+            <SimpleData name="Teléfono">0982865910</SimpleData>
+            <SimpleData name="Vivienda_L">-23.98982060000</SimpleData>
+            <SimpleData name="Vivienda_1">-56.14853110000</SimpleData>
+            <SimpleData name="Situaci_1">Pol?gono</SimpleData>
+            <SimpleData name="Plantado_f">2023/09/01</SimpleData>
+            <SimpleData name="año_usar">2023/09/01</SimpleData>
+            <SimpleData name="año">2023.00000000000</SimpleData>
+            <SimpleData name="mes">septiembre</SimpleData>
+            <SimpleData name="Grupo_de_p">Lote 1-G4</SimpleData>
+            <SimpleData name="ETAPA_FAO">Culminada</SimpleData>
+            <SimpleData name="Estado_del">Activo</SimpleData>
+            <SimpleData name="Empresa">Hyh Consultores SRL</SimpleData>
+            <SimpleData name="Lote">Lote 1</SimpleData>
+            <SimpleData name="X">-56.14513352000</SimpleData>
+            <SimpleData name="Y">-23.98907157000</SimpleData>
+            <SimpleData name="Sup_SIG">0.70165588422</SimpleData>
+            <SimpleData name="Shape_Leng">393.93072497000</SimpleData>
+            <SimpleData name="Shape_Area">7016.55884217000</SimpleData>
+            <SimpleData name="cedula">5828676</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>
+                -56.1444122999066,-23.9891794008284,0
+                -56.1458685003101,-23.9893959001829,0
+                -56.1458725008963,-23.9889908008184,0
+                -56.1444369001706,-23.9887276001839,0
+                -56.1444122999066,-23.9891794008284,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark id="Distrito_SAN_VICENTE_PANCHOLO.19">
+        <ExtendedData>
+          <SchemaData schemaUrl="#Distrito_SAN_VICENTE_PANCHOLO.schema">
+            <SimpleData name="Cédula">5268372.00000000000</SimpleData>
+            <SimpleData name="Nombres_y_">NOELIA LOPEZ GAUTO</SimpleData>
+            <SimpleData name="Sexo">Mujer</SimpleData>
+            <SimpleData name="Cambio_de_">NO</SimpleData>
+            <SimpleData name="Titular_se">NO</SimpleData>
+            <SimpleData name="ci_UNIF">5268372.00000000000</SimpleData>
+            <SimpleData name="Situación">NO</SimpleData>
+            <SimpleData name="Comunidad">Ind?gena</SimpleData>
+            <SimpleData name="Modelo">Modelo 1</SimpleData>
+            <SimpleData name="Departamen">SAN PEDRO</SimpleData>
+            <SimpleData name="Distrito">SAN VICENTE PANCHOLO</SimpleData>
+            <SimpleData name="Localidad">COM INDIG YPOTYJU</SimpleData>
+            <SimpleData name="Teléfono">0985584262</SimpleData>
+            <SimpleData name="Vivienda_L">-23.93432700000</SimpleData>
+            <SimpleData name="Vivienda_1">-56.01079220000</SimpleData>
+            <SimpleData name="Situaci_1">Pol?gono</SimpleData>
+            <SimpleData name="Plantado_f">2022/10/28</SimpleData>
+            <SimpleData name="año_usar">2022/10/28</SimpleData>
+            <SimpleData name="año">2022.00000000000</SimpleData>
+            <SimpleData name="mes">octubre</SimpleData>
+            <SimpleData name="Grupo_de_p">Lote 1-G2</SimpleData>
+            <SimpleData name="ETAPA_FAO">Culminada</SimpleData>
+            <SimpleData name="Estado_del">Inactivo</SimpleData>
+            <SimpleData name="Empresa">Hyh Consultores SRL</SimpleData>
+            <SimpleData name="Lote">Lote 1</SimpleData>
+            <SimpleData name="X">-56.01101727000</SimpleData>
+            <SimpleData name="Y">-23.94204988000</SimpleData>
+            <SimpleData name="Sup_SIG">0.91726214095</SimpleData>
+            <SimpleData name="Shape_Leng">597.59066315300</SimpleData>
+            <SimpleData name="Shape_Area">9172.62140948000</SimpleData>
+            <SimpleData name="cedula">5268372</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <MultiGeometry>
+          <Polygon>
+            <outerBoundaryIs>
+              <LinearRing>
+                <coordinates>
+                  -56.0103372000979,-23.9423102006307,0
+                  -56.0116952996113,-23.9422954010347,0
+                  -56.0117160001162,-23.9418090010351,0
+                  -56.0103548000739,-23.9417856005314,0
+                  -56.0103372000979,-23.9423102006307,0
+                </coordinates>
+              </LinearRing>
+            </outerBoundaryIs>
+          </Polygon>
+          <Polygon>
+            <outerBoundaryIs>
+              <LinearRing>
+                <coordinates>
+                  -56.0089309001197,-23.9379766012743,0
+                  -56.0091946998406,-23.9378901009076,0
+                  -56.0094079001098,-23.9378355007258,0
+                  -56.0093609000532,-23.9376195004375,0
+                  -56.0093339000372,-23.9376306996276,0
+                  -56.0091179999605,-23.9377404996794,0
+                  -56.0089412999044,-23.9378060001785,0
+                  -56.0085302010951,-23.9379215004954,0
+                  -56.0086314001695,-23.9379702009111,0
+                  -56.0089309001197,-23.9379766012743,0
+                </coordinates>
+              </LinearRing>
+            </outerBoundaryIs>
+          </Polygon>
+        </MultiGeometry>
+      </Placemark>
+      <Placemark id="Distrito_SAN_VICENTE_PANCHOLO.20">
+        <ExtendedData>
+          <SchemaData schemaUrl="#Distrito_SAN_VICENTE_PANCHOLO.schema">
+            <SimpleData name="Cédula">6741814.00000000000</SimpleData>
+            <SimpleData name="Nombres_y_">BLANCA CELINA GONZALEZ QUI?ONEZ</SimpleData>
+            <SimpleData name="Sexo">Mujer</SimpleData>
+            <SimpleData name="Cambio_de_">NO</SimpleData>
+            <SimpleData name="Titular_se">NO</SimpleData>
+            <SimpleData name="ci_UNIF">6741814.00000000000</SimpleData>
+            <SimpleData name="Situación">NO</SimpleData>
+            <SimpleData name="Comunidad">Campesina</SimpleData>
+            <SimpleData name="Modelo">Modelo 2</SimpleData>
+            <SimpleData name="Departamen">SAN PEDRO</SimpleData>
+            <SimpleData name="Distrito">SAN VICENTE PANCHOLO</SimpleData>
+            <SimpleData name="Localidad">COMUNIDAD COSTA RICA</SimpleData>
+            <SimpleData name="Teléfono">0984208174</SimpleData>
+            <SimpleData name="Vivienda_L">-23.98927920000</SimpleData>
+            <SimpleData name="Vivienda_1">-56.18308900000</SimpleData>
+            <SimpleData name="Situaci_1">Pol?gono</SimpleData>
+            <SimpleData name="Plantado_f">2022/09/23</SimpleData>
+            <SimpleData name="año_usar">2022/09/23</SimpleData>
+            <SimpleData name="año">2022.00000000000</SimpleData>
+            <SimpleData name="mes">septiembre</SimpleData>
+            <SimpleData name="Grupo_de_p">Lote 1-G1</SimpleData>
+            <SimpleData name="ETAPA_FAO">Culminada</SimpleData>
+            <SimpleData name="Estado_del">Activo</SimpleData>
+            <SimpleData name="Empresa">Hyh Consultores SRL</SimpleData>
+            <SimpleData name="Lote">Lote 1</SimpleData>
+            <SimpleData name="X">-56.17721391000</SimpleData>
+            <SimpleData name="Y">-23.99273697000</SimpleData>
+            <SimpleData name="Sup_SIG">0.80737752144</SimpleData>
+            <SimpleData name="Shape_Leng">472.06990547000</SimpleData>
+            <SimpleData name="Shape_Area">8073.77521435000</SimpleData>
+            <SimpleData name="cedula">6741814</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <MultiGeometry>
+          <Polygon>
+            <outerBoundaryIs>
+              <LinearRing>
+                <coordinates>
+                  -56.1768036001416,-23.9934268010828,0
+                  -56.1772651000246,-23.9932013002773,0
+                  -56.1773774003459,-23.9931095999534,0
+                  -56.1775165000542,-23.9930186005278,0
+                  -56.1774325002599,-23.9928493002368,0
+                  -56.1773348006266,-23.9928638003598,0
+                  -56.17704809896,-23.9924764012438,0
+                  -56.1766786997357,-23.992603899274,0
+                  -56.1763778994456,-23.9927669007205,0
+                  -56.1768036001416,-23.9934268010828,0
+                </coordinates>
+              </LinearRing>
+            </outerBoundaryIs>
+          </Polygon>
+          <Polygon>
+            <outerBoundaryIs>
+              <LinearRing>
+                <coordinates>
+                  -56.1784705996848,-23.9920101009004,0
+                  -56.1785693002091,-23.9919825997884,0
+                  -56.1787885004396,-23.9918039016105,0
+                  -56.1786969000622,-23.9916516004221,0
+                  -56.1784572998173,-23.9916362006211,0
+                  -56.1782746991973,-23.9917288004186,0
+                  -56.1783476013382,-23.991902200813,0
+                  -56.1784705996848,-23.9920101009004,0
+                </coordinates>
+              </LinearRing>
+            </outerBoundaryIs>
+          </Polygon>
+        </MultiGeometry>
+      </Placemark>
+      <Placemark id="Distrito_SAN_VICENTE_PANCHOLO.21">
+        <ExtendedData>
+          <SchemaData schemaUrl="#Distrito_SAN_VICENTE_PANCHOLO.schema">
+            <SimpleData name="Cédula">5252642.00000000000</SimpleData>
+            <SimpleData name="Nombres_y_">MARIA DOMINGA PORTILLO ROTELA</SimpleData>
+            <SimpleData name="Sexo">Mujer</SimpleData>
+            <SimpleData name="Cambio_de_">NO</SimpleData>
+            <SimpleData name="Titular_se">NO</SimpleData>
+            <SimpleData name="ci_UNIF">5252642.00000000000</SimpleData>
+            <SimpleData name="Situación">NO</SimpleData>
+            <SimpleData name="Comunidad">Campesina</SimpleData>
+            <SimpleData name="Modelo">Modelo 6</SimpleData>
+            <SimpleData name="Departamen">SAN PEDRO</SimpleData>
+            <SimpleData name="Distrito">SAN VICENTE PANCHOLO</SimpleData>
+            <SimpleData name="Localidad">NARANJITO CENTRO</SimpleData>
+            <SimpleData name="Teléfono">0985286744</SimpleData>
+            <SimpleData name="Vivienda_L">-24.00500350000</SimpleData>
+            <SimpleData name="Vivienda_1">-56.13278450000</SimpleData>
+            <SimpleData name="Situaci_1">Pol?gono</SimpleData>
+            <SimpleData name="Plantado_f">2022/09/02</SimpleData>
+            <SimpleData name="año_usar">2022/09/02</SimpleData>
+            <SimpleData name="año">2022.00000000000</SimpleData>
+            <SimpleData name="mes">septiembre</SimpleData>
+            <SimpleData name="Grupo_de_p">Lote 1-G1</SimpleData>
+            <SimpleData name="ETAPA_FAO">Culminada</SimpleData>
+            <SimpleData name="Estado_del">Inactivo</SimpleData>
+            <SimpleData name="Empresa">Hyh Consultores SRL</SimpleData>
+            <SimpleData name="Lote">Lote 1</SimpleData>
+            <SimpleData name="X">-56.29491729000</SimpleData>
+            <SimpleData name="Y">-23.99900013000</SimpleData>
+            <SimpleData name="Sup_SIG">1.30428433525</SimpleData>
+            <SimpleData name="Shape_Leng">834.13281815200</SimpleData>
+            <SimpleData name="Shape_Area">13042.84335260000</SimpleData>
+            <SimpleData name="cedula">5252642</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <MultiGeometry>
+          <Polygon>
+            <outerBoundaryIs>
+              <LinearRing>
+                <coordinates>
+                  -56.2945668018649,-23.9989339001579,0
+                  -56.2943299999496,-23.9990749001477,0
+                  -56.2940814009751,-23.9992361002235,0
+                  -56.2938516996094,-23.9993761016073,0
+                  -56.2937183001637,-23.9995513007268,0
+                  -56.2938861990176,-23.9997893003658,0
+                  -56.2939888985461,-23.9999834996384,0
+                  -56.2940960998526,-24.0001554001202,0
+                  -56.2942961002779,-24.0000855004158,0
+                  -56.2943403987555,-23.9999552007246,0
+                  -56.294211999527,-23.9997506015497,0
+                  -56.2942233004427,-23.9995152001625,0
+                  -56.2944736998084,-23.9994008995956,0
+                  -56.2946753998968,-23.9992662011097,0
+                  -56.2949000001777,-23.9991816999833,0
+                  -56.2951366002326,-23.9991766001061,0
+                  -56.2951380000035,-23.999091801282,0
+                  -56.2950416002864,-23.9989094995249,0
+                  -56.2950533013464,-23.9988633004219,0
+                  -56.2950433002977,-23.998886001103,0
+                  -56.2950667016122,-23.9988136011671,0
+                  -56.2949753011997,-23.9986999001258,0
+                  -56.2947661005209,-23.9988136016667,0
+                  -56.2945668018649,-23.9989339001579,0
+                </coordinates>
+              </LinearRing>
+            </outerBoundaryIs>
+          </Polygon>
+          <Polygon>
+            <outerBoundaryIs>
+              <LinearRing>
+                <coordinates>
+                  -56.2951417997996,-23.9989353007681,0
+                  -56.2951483005418,-23.9989300000659,0
+                  -56.2952597997384,-23.9988813017483,0
+                  -56.2955606004083,-23.9987409998557,0
+                  -56.2958603992916,-23.9985910016039,0
+                  -56.2961469999695,-23.9984564010486,0
+                  -56.2963472991083,-23.9982864010719,0
+                  -56.2961982010168,-23.9980588001644,0
+                  -56.2959604001193,-23.9980893009404,0
+                  -56.295715400063,-23.9982276002079,0
+                  -56.2955144002195,-23.9983668996462,0
+                  -56.2952670999581,-23.9985037000631,0
+                  -56.2950577987851,-23.9986457009842,0
+                  -56.2950880992828,-23.998835600821,0
+                  -56.2951417997996,-23.9989353007681,0
+                </coordinates>
+              </LinearRing>
+            </outerBoundaryIs>
+          </Polygon>
+        </MultiGeometry>
+      </Placemark>
+      <Placemark id="Distrito_SAN_VICENTE_PANCHOLO.22">
+        <ExtendedData>
+          <SchemaData schemaUrl="#Distrito_SAN_VICENTE_PANCHOLO.schema">
+            <SimpleData name="Cédula">1575314.00000000000</SimpleData>
+            <SimpleData name="Nombres_y_">HIRMA PEREIRA SEGOBIA</SimpleData>
+            <SimpleData name="Sexo">Mujer</SimpleData>
+            <SimpleData name="Cambio_de_">NO</SimpleData>
+            <SimpleData name="Titular_se">NO</SimpleData>
+            <SimpleData name="ci_UNIF">1575314.00000000000</SimpleData>
+            <SimpleData name="Situación">NO</SimpleData>
+            <SimpleData name="Comunidad">Campesina</SimpleData>
+            <SimpleData name="Modelo">Modelo 6</SimpleData>
+            <SimpleData name="Departamen">SAN PEDRO</SimpleData>
+            <SimpleData name="Distrito">SAN VICENTE PANCHOLO</SimpleData>
+            <SimpleData name="Localidad">CALLE SAN JUAN SAN JOS? DEL NORTE</SimpleData>
+            <SimpleData name="Teléfono">0985496035</SimpleData>
+            <SimpleData name="Vivienda_L">-24.06192900000</SimpleData>
+            <SimpleData name="Vivienda_1">-56.16269320000</SimpleData>
+            <SimpleData name="Situaci_1">Pol?gono</SimpleData>
+            <SimpleData name="Plantado_f">2022/09/23</SimpleData>
+            <SimpleData name="año_usar">2022/09/23</SimpleData>
+            <SimpleData name="año">2022.00000000000</SimpleData>
+            <SimpleData name="mes">septiembre</SimpleData>
+            <SimpleData name="Grupo_de_p">Lote 1-G1</SimpleData>
+            <SimpleData name="ETAPA_FAO">Culminada</SimpleData>
+            <SimpleData name="Estado_del">Activo</SimpleData>
+            <SimpleData name="Empresa">Hyh Consultores SRL</SimpleData>
+            <SimpleData name="Lote">Lote 1</SimpleData>
+            <SimpleData name="X">-56.14669659000</SimpleData>
+            <SimpleData name="Y">-24.08620176000</SimpleData>
+            <SimpleData name="Sup_SIG">1.06523303366</SimpleData>
+            <SimpleData name="Shape_Leng">433.40636359700</SimpleData>
+            <SimpleData name="Shape_Area">10652.33033660000</SimpleData>
+            <SimpleData name="cedula">1575314</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>
+                -56.1468073001741,-24.0866471013159,0
+                -56.1470099994053,-24.0868383003938,0
+                -56.1474923994922,-24.0864729004483,0
+                -56.1464727002294,-24.0855133008157,0
+                -56.1459510997913,-24.0860198010744,0
+                -56.1464157998063,-24.0865127997677,0
+                -56.1468073001741,-24.0866471013159,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark id="Distrito_SAN_VICENTE_PANCHOLO.23">
+        <ExtendedData>
+          <SchemaData schemaUrl="#Distrito_SAN_VICENTE_PANCHOLO.schema">
+            <SimpleData name="Cédula">2959780.00000000000</SimpleData>
+            <SimpleData name="Nombres_y_">MARIA LORENZA AYALA AYALA</SimpleData>
+            <SimpleData name="Sexo">Mujer</SimpleData>
+            <SimpleData name="Cambio_de_">NO</SimpleData>
+            <SimpleData name="Titular_se">NO</SimpleData>
+            <SimpleData name="ci_UNIF">2959780.00000000000</SimpleData>
+            <SimpleData name="Situación">NO</SimpleData>
+            <SimpleData name="Comunidad">Campesina</SimpleData>
+            <SimpleData name="Modelo">Modelo 4</SimpleData>
+            <SimpleData name="Departamen">SAN PEDRO</SimpleData>
+            <SimpleData name="Distrito">SAN VICENTE PANCHOLO</SimpleData>
+            <SimpleData name="Localidad">SAN JOS? DEL NORTE</SimpleData>
+            <SimpleData name="Teléfono">0984538272</SimpleData>
+            <SimpleData name="Vivienda_L">-24.06177320000</SimpleData>
+            <SimpleData name="Vivienda_1">-56.19704440000</SimpleData>
+            <SimpleData name="Situaci_1">Pol?gono</SimpleData>
+            <SimpleData name="Plantado_f">2022/09/16</SimpleData>
+            <SimpleData name="año_usar">2022/09/16</SimpleData>
+            <SimpleData name="año">2022.00000000000</SimpleData>
+            <SimpleData name="mes">septiembre</SimpleData>
+            <SimpleData name="Grupo_de_p">Lote 1-G1</SimpleData>
+            <SimpleData name="ETAPA_FAO">Culminada</SimpleData>
+            <SimpleData name="Estado_del">Inactivo</SimpleData>
+            <SimpleData name="Empresa">Hyh Consultores SRL</SimpleData>
+            <SimpleData name="Lote">Lote 1</SimpleData>
+            <SimpleData name="X">-56.19336127000</SimpleData>
+            <SimpleData name="Y">-24.05925269000</SimpleData>
+            <SimpleData name="Sup_SIG">0.75971467356</SimpleData>
+            <SimpleData name="Shape_Leng">351.50827198700</SimpleData>
+            <SimpleData name="Shape_Area">7597.14673558000</SimpleData>
+            <SimpleData name="cedula">2959780</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>
+                -56.1928127998639,-24.0594462999243,0
+                -56.1927652007997,-24.0595948004733,0
+                -56.1934200009605,-24.0595902996854,0
+                -56.1936995987661,-24.0596607005118,0
+                -56.1937938002228,-24.0594662014708,0
+                -56.1939033998389,-24.0591527006865,0
+                -56.1938615998776,-24.0591360998691,0
+                -56.1939111015393,-24.0591139007808,0
+                -56.1938486004745,-24.0590071005381,0
+                -56.1936857995019,-24.058935799895,0
+                -56.1935161006965,-24.0588603000605,0
+                -56.1933866999926,-24.058834600531,0
+                -56.1930673999874,-24.058847700283,0
+                -56.1929901996638,-24.0590419001687,0
+                -56.1928127998639,-24.0594462999243,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark id="Distrito_SAN_VICENTE_PANCHOLO.24">
+        <ExtendedData>
+          <SchemaData schemaUrl="#Distrito_SAN_VICENTE_PANCHOLO.schema">
+            <SimpleData name="Cédula">4878300.00000000000</SimpleData>
+            <SimpleData name="Nombres_y_">GLADYS MARIA SOSA DE CABRERA</SimpleData>
+            <SimpleData name="Sexo">Mujer</SimpleData>
+            <SimpleData name="Cambio_de_">NO</SimpleData>
+            <SimpleData name="Titular_se">NO</SimpleData>
+            <SimpleData name="ci_UNIF">4878300.00000000000</SimpleData>
+            <SimpleData name="Situación">NO</SimpleData>
+            <SimpleData name="Comunidad">Campesina</SimpleData>
+            <SimpleData name="Modelo">Modelo 4</SimpleData>
+            <SimpleData name="Departamen">SAN PEDRO</SimpleData>
+            <SimpleData name="Distrito">SAN VICENTE PANCHOLO</SimpleData>
+            <SimpleData name="Localidad">CALLE COSTA RICA-SAN VICENTE</SimpleData>
+            <SimpleData name="Teléfono">0985674513</SimpleData>
+            <SimpleData name="Vivienda_L">-23.98818130000</SimpleData>
+            <SimpleData name="Vivienda_1">-56.18266290000</SimpleData>
+            <SimpleData name="Situaci_1">Pol?gono</SimpleData>
+            <SimpleData name="Plantado_f">2023/09/01</SimpleData>
+            <SimpleData name="año_usar">2023/09/01</SimpleData>
+            <SimpleData name="año">2023.00000000000</SimpleData>
+            <SimpleData name="mes">septiembre</SimpleData>
+            <SimpleData name="Grupo_de_p">Lote 1-G4</SimpleData>
+            <SimpleData name="ETAPA_FAO">Culminada</SimpleData>
+            <SimpleData name="Estado_del">Activo</SimpleData>
+            <SimpleData name="Empresa">Hyh Consultores SRL</SimpleData>
+            <SimpleData name="Lote">Lote 1</SimpleData>
+            <SimpleData name="X">-56.18225893000</SimpleData>
+            <SimpleData name="Y">-23.98901609000</SimpleData>
+            <SimpleData name="Sup_SIG">0.83283578929</SimpleData>
+            <SimpleData name="Shape_Leng">366.04004876700</SimpleData>
+            <SimpleData name="Shape_Area">8328.35789293000</SimpleData>
+            <SimpleData name="cedula">4878300</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>
+                -56.1816464001038,-23.9888306009672,0
+                -56.1821505001249,-23.9895910992564,0
+                -56.1828425005835,-23.9892225993115,0
+                -56.1824154998529,-23.98844159953,0
+                -56.1816464001038,-23.9888306009672,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark id="Distrito_SAN_VICENTE_PANCHOLO.25">
+        <ExtendedData>
+          <SchemaData schemaUrl="#Distrito_SAN_VICENTE_PANCHOLO.schema">
+            <SimpleData name="Cédula">5240538.00000000000</SimpleData>
+            <SimpleData name="Nombres_y_">BERNARDA ANTONIA GAVILAN VIERA</SimpleData>
+            <SimpleData name="Sexo">Mujer</SimpleData>
+            <SimpleData name="Cambio_de_">NO</SimpleData>
+            <SimpleData name="Titular_se">NO</SimpleData>
+            <SimpleData name="ci_UNIF">5240538.00000000000</SimpleData>
+            <SimpleData name="Situación">NO</SimpleData>
+            <SimpleData name="Comunidad">Campesina</SimpleData>
+            <SimpleData name="Modelo">Modelo 4</SimpleData>
+            <SimpleData name="Departamen">SAN PEDRO</SimpleData>
+            <SimpleData name="Distrito">SAN VICENTE PANCHOLO</SimpleData>
+            <SimpleData name="Localidad">CALLE CENTRO URBANO-SAN JOS? DEL NORTE</SimpleData>
+            <SimpleData name="Teléfono">0986485376</SimpleData>
+            <SimpleData name="Vivienda_L">-24.09957920000</SimpleData>
+            <SimpleData name="Vivienda_1">-56.17810680000</SimpleData>
+            <SimpleData name="Situaci_1">Pol?gono</SimpleData>
+            <SimpleData name="Plantado_f">2023/09/01</SimpleData>
+            <SimpleData name="año_usar">2023/09/01</SimpleData>
+            <SimpleData name="año">2023.00000000000</SimpleData>
+            <SimpleData name="mes">septiembre</SimpleData>
+            <SimpleData name="Grupo_de_p">Lote 1-G5</SimpleData>
+            <SimpleData name="ETAPA_FAO">Culminada</SimpleData>
+            <SimpleData name="Estado_del">Activo</SimpleData>
+            <SimpleData name="Empresa">Hyh Consultores SRL</SimpleData>
+            <SimpleData name="Lote">Lote 1</SimpleData>
+            <SimpleData name="X">-56.17866295000</SimpleData>
+            <SimpleData name="Y">-24.09983006000</SimpleData>
+            <SimpleData name="Sup_SIG">0.78483572174</SimpleData>
+            <SimpleData name="Shape_Leng">410.87076325700</SimpleData>
+            <SimpleData name="Shape_Area">7848.35721735000</SimpleData>
+            <SimpleData name="cedula">5240538</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>
+                -56.1781451998924,-24.1001086994577,0
+                -56.1793000018423,-24.1002333008348,0
+                -56.1794871003693,-24.1000297001231,0
+                -56.1790498000808,-24.0999944997243,0
+                -56.1789384997789,-24.0994401008974,0
+                -56.1782113005051,-24.0993719009009,0
+                -56.1781451998924,-24.1001086994577,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark id="Distrito_SAN_VICENTE_PANCHOLO.26">
+        <ExtendedData>
+          <SchemaData schemaUrl="#Distrito_SAN_VICENTE_PANCHOLO.schema">
+            <SimpleData name="Cédula">4883411.00000000000</SimpleData>
+            <SimpleData name="Nombres_y_">FIDELINA GONZALEZ ZORRILLA</SimpleData>
+            <SimpleData name="Sexo">Mujer</SimpleData>
+            <SimpleData name="Cambio_de_">NO</SimpleData>
+            <SimpleData name="Titular_se">NO</SimpleData>
+            <SimpleData name="ci_UNIF">4883411.00000000000</SimpleData>
+            <SimpleData name="Situación">NO</SimpleData>
+            <SimpleData name="Comunidad">Campesina</SimpleData>
+            <SimpleData name="Modelo">Modelo 4</SimpleData>
+            <SimpleData name="Departamen">SAN PEDRO</SimpleData>
+            <SimpleData name="Distrito">SAN VICENTE PANCHOLO</SimpleData>
+            <SimpleData name="Localidad">SAN JOS? DEL NORTE</SimpleData>
+            <SimpleData name="Teléfono">0984515453</SimpleData>
+            <SimpleData name="Vivienda_L">-24.08781580000</SimpleData>
+            <SimpleData name="Vivienda_1">-56.18506520000</SimpleData>
+            <SimpleData name="Situaci_1">Pol?gono</SimpleData>
+            <SimpleData name="Plantado_f">2023/08/31</SimpleData>
+            <SimpleData name="año_usar">2023/08/31</SimpleData>
+            <SimpleData name="año">2023.00000000000</SimpleData>
+            <SimpleData name="mes">agosto</SimpleData>
+            <SimpleData name="Grupo_de_p">Lote 1-G4</SimpleData>
+            <SimpleData name="ETAPA_FAO">Culminada</SimpleData>
+            <SimpleData name="Estado_del">Activo</SimpleData>
+            <SimpleData name="Empresa">Hyh Consultores SRL</SimpleData>
+            <SimpleData name="Lote">Lote 1</SimpleData>
+            <SimpleData name="X">-56.18513556000</SimpleData>
+            <SimpleData name="Y">-24.08758484000</SimpleData>
+            <SimpleData name="Sup_SIG">0.71755502398</SimpleData>
+            <SimpleData name="Shape_Leng">334.04705922100</SimpleData>
+            <SimpleData name="Shape_Area">7175.55023983000</SimpleData>
+            <SimpleData name="cedula">4883411</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>
+                -56.1847710005435,-24.0879649007878,0
+                -56.1852680013082,-24.0879993002915,0
+                -56.1855991012224,-24.0879282010508,0
+                -56.1854498997837,-24.0871339998522,0
+                -56.1846816997118,-24.0872417002801,0
+                -56.1847710005435,-24.0879649007878,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark id="Distrito_SAN_VICENTE_PANCHOLO.27">
+        <ExtendedData>
+          <SchemaData schemaUrl="#Distrito_SAN_VICENTE_PANCHOLO.schema">
+            <SimpleData name="Cédula">6339852.00000000000</SimpleData>
+            <SimpleData name="Nombres_y_">JESSICA PAOLA VILLALBA ROMERO</SimpleData>
+            <SimpleData name="Sexo">Mujer</SimpleData>
+            <SimpleData name="Cambio_de_">NO</SimpleData>
+            <SimpleData name="Titular_se">NO</SimpleData>
+            <SimpleData name="ci_UNIF">6339852.00000000000</SimpleData>
+            <SimpleData name="Situación">NO</SimpleData>
+            <SimpleData name="Comunidad">Campesina</SimpleData>
+            <SimpleData name="Modelo">Modelo 3</SimpleData>
+            <SimpleData name="Departamen">SAN PEDRO</SimpleData>
+            <SimpleData name="Distrito">SAN VICENTE PANCHOLO</SimpleData>
+            <SimpleData name="Localidad">SANTA CLARA SAN JOS? DEL NORTE</SimpleData>
+            <SimpleData name="Teléfono">0982819397</SimpleData>
+            <SimpleData name="Vivienda_L">-24.07997890000</SimpleData>
+            <SimpleData name="Vivienda_1">-56.19954350000</SimpleData>
+            <SimpleData name="Situaci_1">Pol?gono</SimpleData>
+            <SimpleData name="Plantado_f">2022/09/16</SimpleData>
+            <SimpleData name="año_usar">2022/09/16</SimpleData>
+            <SimpleData name="año">2022.00000000000</SimpleData>
+            <SimpleData name="mes">septiembre</SimpleData>
+            <SimpleData name="Grupo_de_p">Lote 1-G1</SimpleData>
+            <SimpleData name="ETAPA_FAO">Culminada</SimpleData>
+            <SimpleData name="Estado_del">Activo</SimpleData>
+            <SimpleData name="Empresa">Hyh Consultores SRL</SimpleData>
+            <SimpleData name="Lote">Lote 1</SimpleData>
+            <SimpleData name="X">-56.19977552000</SimpleData>
+            <SimpleData name="Y">-24.08160071000</SimpleData>
+            <SimpleData name="Sup_SIG">1.17103816007</SimpleData>
+            <SimpleData name="Shape_Leng">444.22801018700</SimpleData>
+            <SimpleData name="Shape_Area">11710.38160070000</SimpleData>
+            <SimpleData name="cedula">6339852</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>
+                -56.1990471002373,-24.0813984008378,0
+                -56.1998888992924,-24.0823677993289,0
+                -56.2004424000889,-24.0818418009009,0
+                -56.1997910001365,-24.0808454001298,0
+                -56.1990471002373,-24.0813984008378,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark id="Distrito_SAN_VICENTE_PANCHOLO.28">
+        <ExtendedData>
+          <SchemaData schemaUrl="#Distrito_SAN_VICENTE_PANCHOLO.schema">
+            <SimpleData name="Cédula">6378989.00000000000</SimpleData>
+            <SimpleData name="Nombres_y_">VIRGINIA BARRIOS ARIAS</SimpleData>
+            <SimpleData name="Sexo">Mujer</SimpleData>
+            <SimpleData name="Cambio_de_">NO</SimpleData>
+            <SimpleData name="Titular_se">NO</SimpleData>
+            <SimpleData name="ci_UNIF">6378989.00000000000</SimpleData>
+            <SimpleData name="Situación">NO</SimpleData>
+            <SimpleData name="Comunidad">Campesina</SimpleData>
+            <SimpleData name="Modelo">Modelo 6</SimpleData>
+            <SimpleData name="Departamen">SAN PEDRO</SimpleData>
+            <SimpleData name="Distrito">SAN VICENTE PANCHOLO</SimpleData>
+            <SimpleData name="Localidad">CALLE SAN JUAN SAN JOS? DEL NORTE</SimpleData>
+            <SimpleData name="Teléfono">0975334438</SimpleData>
+            <SimpleData name="Vivienda_L">-24.08820310000</SimpleData>
+            <SimpleData name="Vivienda_1">-56.14745530000</SimpleData>
+            <SimpleData name="Situaci_1">Pol?gono</SimpleData>
+            <SimpleData name="Plantado_f">2022/09/23</SimpleData>
+            <SimpleData name="año_usar">2022/09/23</SimpleData>
+            <SimpleData name="año">2022.00000000000</SimpleData>
+            <SimpleData name="mes">septiembre</SimpleData>
+            <SimpleData name="Grupo_de_p">Lote 1-G1</SimpleData>
+            <SimpleData name="ETAPA_FAO">Culminada</SimpleData>
+            <SimpleData name="Estado_del">Activo</SimpleData>
+            <SimpleData name="Empresa">Hyh Consultores SRL</SimpleData>
+            <SimpleData name="Lote">Lote 1</SimpleData>
+            <SimpleData name="X">-56.14561709000</SimpleData>
+            <SimpleData name="Y">-24.08619095000</SimpleData>
+            <SimpleData name="Sup_SIG">0.90879191672</SimpleData>
+            <SimpleData name="Shape_Leng">423.39933343800</SimpleData>
+            <SimpleData name="Shape_Area">9087.91916717000</SimpleData>
+            <SimpleData name="cedula">6378989</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>
+                -56.1449937001376,-24.0860389000047,0
+                -56.1458116005618,-24.0868450999853,0
+                -56.1463266011345,-24.0864216001328,0
+                -56.145301500561,-24.0855016002345,0
+                -56.1450469004086,-24.0856871997134,0
+                -56.1451896006946,-24.0858786003296,0
+                -56.1449937001376,-24.0860389000047,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark id="Distrito_SAN_VICENTE_PANCHOLO.29">
+        <ExtendedData>
+          <SchemaData schemaUrl="#Distrito_SAN_VICENTE_PANCHOLO.schema">
+            <SimpleData name="Cédula">5240522.00000000000</SimpleData>
+            <SimpleData name="Nombres_y_">SONIA AIDE VILLALBA ALEGRE</SimpleData>
+            <SimpleData name="Sexo">Mujer</SimpleData>
+            <SimpleData name="Cambio_de_">NO</SimpleData>
+            <SimpleData name="Titular_se">NO</SimpleData>
+            <SimpleData name="ci_UNIF">5240522.00000000000</SimpleData>
+            <SimpleData name="Situación">NO</SimpleData>
+            <SimpleData name="Comunidad">Campesina</SimpleData>
+            <SimpleData name="Modelo">Modelo 4</SimpleData>
+            <SimpleData name="Departamen">SAN PEDRO</SimpleData>
+            <SimpleData name="Distrito">SAN VICENTE PANCHOLO</SimpleData>
+            <SimpleData name="Localidad">CALLE 1 DE MAYO-SAN JOS? DEL NORTE</SimpleData>
+            <SimpleData name="Teléfono">0976812791</SimpleData>
+            <SimpleData name="Vivienda_L">-24.13361870000</SimpleData>
+            <SimpleData name="Vivienda_1">-56.16844760000</SimpleData>
+            <SimpleData name="Situaci_1">Pol?gono</SimpleData>
+            <SimpleData name="Plantado_f">2023/09/01</SimpleData>
+            <SimpleData name="año_usar">2023/09/01</SimpleData>
+            <SimpleData name="año">2023.00000000000</SimpleData>
+            <SimpleData name="mes">septiembre</SimpleData>
+            <SimpleData name="Grupo_de_p">Lote 1-G4</SimpleData>
+            <SimpleData name="ETAPA_FAO">Culminada</SimpleData>
+            <SimpleData name="Estado_del">Activo</SimpleData>
+            <SimpleData name="Empresa">Hyh Consultores SRL</SimpleData>
+            <SimpleData name="Lote">Lote 1</SimpleData>
+            <SimpleData name="X">-56.16545580000</SimpleData>
+            <SimpleData name="Y">-24.13120993000</SimpleData>
+            <SimpleData name="Sup_SIG">0.74655069487</SimpleData>
+            <SimpleData name="Shape_Leng">347.24941550400</SimpleData>
+            <SimpleData name="Shape_Area">7465.50694886000</SimpleData>
+            <SimpleData name="cedula">5240522</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>
+                -56.1648485016062,-24.1311277003464,0
+                -56.1655047997988,-24.1317968000104,0
+                -56.1660418001874,-24.1311758004434,0
+                -56.1654392011656,-24.1306821000009,0
+                -56.1648485016062,-24.1311277003464,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark id="Distrito_SAN_VICENTE_PANCHOLO.30">
+        <ExtendedData>
+          <SchemaData schemaUrl="#Distrito_SAN_VICENTE_PANCHOLO.schema">
+            <SimpleData name="Cédula">4961517.00000000000</SimpleData>
+            <SimpleData name="Nombres_y_">LUZ MARINA ROMAN ACEVEDO</SimpleData>
+            <SimpleData name="Sexo">Mujer</SimpleData>
+            <SimpleData name="Cambio_de_">NO</SimpleData>
+            <SimpleData name="Titular_se">NO</SimpleData>
+            <SimpleData name="ci_UNIF">4961517.00000000000</SimpleData>
+            <SimpleData name="Situación">NO</SimpleData>
+            <SimpleData name="Comunidad">Campesina</SimpleData>
+            <SimpleData name="Modelo">Modelo 1</SimpleData>
+            <SimpleData name="Departamen">SAN PEDRO</SimpleData>
+            <SimpleData name="Distrito">SAN VICENTE PANCHOLO</SimpleData>
+            <SimpleData name="Localidad">SAN VICENTE PANCHOLO/CALLE SAN JUAN</SimpleData>
+            <SimpleData name="Teléfono">0984861517</SimpleData>
+            <SimpleData name="Vivienda_L">-24.02146940000</SimpleData>
+            <SimpleData name="Vivienda_1">-56.06656080000</SimpleData>
+            <SimpleData name="Situaci_1">Pol?gono</SimpleData>
+            <SimpleData name="Plantado_f">2023/09/01</SimpleData>
+            <SimpleData name="año_usar">2023/09/01</SimpleData>
+            <SimpleData name="año">2023.00000000000</SimpleData>
+            <SimpleData name="mes">septiembre</SimpleData>
+            <SimpleData name="Grupo_de_p">Lote 1-G4</SimpleData>
+            <SimpleData name="ETAPA_FAO">Culminada</SimpleData>
+            <SimpleData name="Estado_del">Activo</SimpleData>
+            <SimpleData name="Empresa">Hyh Consultores SRL</SimpleData>
+            <SimpleData name="Lote">Lote 1</SimpleData>
+            <SimpleData name="X">-56.06555064000</SimpleData>
+            <SimpleData name="Y">-24.01580224000</SimpleData>
+            <SimpleData name="Sup_SIG">0.88034146028</SimpleData>
+            <SimpleData name="Shape_Leng">397.45054768700</SimpleData>
+            <SimpleData name="Shape_Area">8803.41460279000</SimpleData>
+            <SimpleData name="cedula">4961517</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>
+                -56.0651390001078,-24.0163156006969,0
+                -56.0657910996641,-24.0164556002633,0
+                -56.0659599997722,-24.0153178998317,0
+                -56.0653244006282,-24.0151184997646,0
+                -56.0651390001078,-24.0163156006969,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark id="Distrito_SAN_VICENTE_PANCHOLO.31">
+        <ExtendedData>
+          <SchemaData schemaUrl="#Distrito_SAN_VICENTE_PANCHOLO.schema">
+            <SimpleData name="Cédula">5959168.00000000000</SimpleData>
+            <SimpleData name="Nombres_y_">ANTONIA GIMENEZ GIMENEZ</SimpleData>
+            <SimpleData name="Sexo">Mujer</SimpleData>
+            <SimpleData name="Cambio_de_">NO</SimpleData>
+            <SimpleData name="Titular_se">NO</SimpleData>
+            <SimpleData name="ci_UNIF">5959168.00000000000</SimpleData>
+            <SimpleData name="Situación">NO</SimpleData>
+            <SimpleData name="Comunidad">Campesina</SimpleData>
+            <SimpleData name="Modelo">Modelo 3</SimpleData>
+            <SimpleData name="Departamen">SAN PEDRO</SimpleData>
+            <SimpleData name="Distrito">SAN VICENTE PANCHOLO</SimpleData>
+            <SimpleData name="Localidad">SAN JOS? DEL NORTE</SimpleData>
+            <SimpleData name="Teléfono">0982499896</SimpleData>
+            <SimpleData name="Vivienda_L">-24.08890560000</SimpleData>
+            <SimpleData name="Vivienda_1">-56.14649720000</SimpleData>
+            <SimpleData name="Situaci_1">Pol?gono</SimpleData>
+            <SimpleData name="Plantado_f">2023/08/31</SimpleData>
+            <SimpleData name="año_usar">2023/08/31</SimpleData>
+            <SimpleData name="año">2023.00000000000</SimpleData>
+            <SimpleData name="mes">agosto</SimpleData>
+            <SimpleData name="Grupo_de_p">Lote 1-G4</SimpleData>
+            <SimpleData name="ETAPA_FAO">Culminada</SimpleData>
+            <SimpleData name="Estado_del">Activo</SimpleData>
+            <SimpleData name="Empresa">Hyh Consultores SRL</SimpleData>
+            <SimpleData name="Lote">Lote 1</SimpleData>
+            <SimpleData name="X">-56.14477613000</SimpleData>
+            <SimpleData name="Y">-24.08809315000</SimpleData>
+            <SimpleData name="Sup_SIG">1.06964573805</SimpleData>
+            <SimpleData name="Shape_Leng">420.60227142600</SimpleData>
+            <SimpleData name="Shape_Area">10696.45738050000</SimpleData>
+            <SimpleData name="cedula">5959168</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>
+                -56.1440420010334,-24.0879800012616,0
+                -56.1448790011236,-24.0887440004823,0
+                -56.1451739989062,-24.0884940014903,0
+                -56.1455571998381,-24.0881354004983,0
+                -56.1445359999705,-24.0874610011769,0
+                -56.1440420010334,-24.0879800012616,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark id="Distrito_SAN_VICENTE_PANCHOLO.32">
+        <ExtendedData>
+          <SchemaData schemaUrl="#Distrito_SAN_VICENTE_PANCHOLO.schema">
+            <SimpleData name="Cédula">6361901.00000000000</SimpleData>
+            <SimpleData name="Nombres_y_">ANGEL LOPEZ CENTURION</SimpleData>
+            <SimpleData name="Sexo">Hombre</SimpleData>
+            <SimpleData name="Cambio_de_">NO</SimpleData>
+            <SimpleData name="Titular_se">NO</SimpleData>
+            <SimpleData name="ci_UNIF">6361901.00000000000</SimpleData>
+            <SimpleData name="Situación">NO</SimpleData>
+            <SimpleData name="Comunidad">Campesina</SimpleData>
+            <SimpleData name="Modelo">Modelo 2</SimpleData>
+            <SimpleData name="Departamen">SAN PEDRO</SimpleData>
+            <SimpleData name="Distrito">SAN VICENTE PANCHOLO</SimpleData>
+            <SimpleData name="Localidad">SAN JOS? DEL NORTE</SimpleData>
+            <SimpleData name="Teléfono">0984511343</SimpleData>
+            <SimpleData name="Vivienda_L">-24.10542490000</SimpleData>
+            <SimpleData name="Vivienda_1">-56.17106310000</SimpleData>
+            <SimpleData name="Situaci_1">Pol?gono</SimpleData>
+            <SimpleData name="Plantado_f">2022/09/16</SimpleData>
+            <SimpleData name="año_usar">2022/09/16</SimpleData>
+            <SimpleData name="año">2022.00000000000</SimpleData>
+            <SimpleData name="mes">septiembre</SimpleData>
+            <SimpleData name="Grupo_de_p">Lote 1-G2</SimpleData>
+            <SimpleData name="ETAPA_FAO">Culminada</SimpleData>
+            <SimpleData name="Estado_del">Activo</SimpleData>
+            <SimpleData name="Empresa">Hyh Consultores SRL</SimpleData>
+            <SimpleData name="Lote">Lote 1</SimpleData>
+            <SimpleData name="X">-56.19113466000</SimpleData>
+            <SimpleData name="Y">-24.08173746000</SimpleData>
+            <SimpleData name="Sup_SIG">0.82348862338</SimpleData>
+            <SimpleData name="Shape_Leng">688.96884885400</SimpleData>
+            <SimpleData name="Shape_Area">8234.88623398000</SimpleData>
+            <SimpleData name="cedula">6361901</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <MultiGeometry>
+          <Polygon>
+            <outerBoundaryIs>
+              <LinearRing>
+                <coordinates>
+                  -56.1911009995501,-24.0826303003777,0
+                  -56.191367798826,-24.0825888998109,0
+                  -56.1912336006586,-24.0809277012041,0
+                  -56.1908575013859,-24.0809908007021,0
+                  -56.1911009995501,-24.0826303003777,0
+                </coordinates>
+              </LinearRing>
+            </outerBoundaryIs>
+          </Polygon>
+          <Polygon>
+            <outerBoundaryIs>
+              <LinearRing>
+                <coordinates>
+                  -56.1914318002461,-24.0818861002472,0
+                  -56.1925232001384,-24.081810699754,0
+                  -56.1924199017734,-24.0815771013768,0
+                  -56.1914349995156,-24.0817639008143,0
+                  -56.1914318002461,-24.0818861002472,0
+                </coordinates>
+              </LinearRing>
+            </outerBoundaryIs>
+          </Polygon>
+        </MultiGeometry>
+      </Placemark>
+      <Placemark id="Distrito_SAN_VICENTE_PANCHOLO.33">
+        <ExtendedData>
+          <SchemaData schemaUrl="#Distrito_SAN_VICENTE_PANCHOLO.schema">
+            <SimpleData name="Cédula">6096663.00000000000</SimpleData>
+            <SimpleData name="Nombres_y_">ELVA VELAZQUEZ GONZALEZ</SimpleData>
+            <SimpleData name="Sexo">Mujer</SimpleData>
+            <SimpleData name="Cambio_de_">NO</SimpleData>
+            <SimpleData name="Titular_se">NO</SimpleData>
+            <SimpleData name="ci_UNIF">6096663.00000000000</SimpleData>
+            <SimpleData name="Situación">NO</SimpleData>
+            <SimpleData name="Comunidad">Campesina</SimpleData>
+            <SimpleData name="Modelo">Modelo 5</SimpleData>
+            <SimpleData name="Departamen">SAN PEDRO</SimpleData>
+            <SimpleData name="Distrito">SAN VICENTE PANCHOLO</SimpleData>
+            <SimpleData name="Localidad">CALLE GRAL. BERNARDINO CABALLERO-SAN VICENTE</SimpleData>
+            <SimpleData name="Teléfono">0986691439</SimpleData>
+            <SimpleData name="Vivienda_L">-23.99902110000</SimpleData>
+            <SimpleData name="Vivienda_1">-56.17530230000</SimpleData>
+            <SimpleData name="Situaci_1">Pol?gono</SimpleData>
+            <SimpleData name="Plantado_f">2023/09/01</SimpleData>
+            <SimpleData name="año_usar">2023/09/01</SimpleData>
+            <SimpleData name="año">2023.00000000000</SimpleData>
+            <SimpleData name="mes">septiembre</SimpleData>
+            <SimpleData name="Grupo_de_p">Lote 1-G4</SimpleData>
+            <SimpleData name="ETAPA_FAO">Culminada</SimpleData>
+            <SimpleData name="Estado_del">Activo</SimpleData>
+            <SimpleData name="Empresa">Hyh Consultores SRL</SimpleData>
+            <SimpleData name="Lote">Lote 1</SimpleData>
+            <SimpleData name="X">-56.17595583000</SimpleData>
+            <SimpleData name="Y">-24.00022080000</SimpleData>
+            <SimpleData name="Sup_SIG">0.85751777594</SimpleData>
+            <SimpleData name="Shape_Leng">477.39740916400</SimpleData>
+            <SimpleData name="Shape_Area">8575.17775950000</SimpleData>
+            <SimpleData name="cedula">6096663</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>
+                -56.1754176635266,-23.9994998125133,0
+                -56.1760942000972,-24.0010988006646,0
+                -56.1765116005116,-24.0009733011419,0
+                -56.1759373407951,-23.9996377922914,0
+                -56.1757900019513,-23.9993150054341,0
+                -56.1754096720766,-23.9994817287978,0
+                -56.1754176635266,-23.9994998125133,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark id="Distrito_SAN_VICENTE_PANCHOLO.34">
+        <ExtendedData>
+          <SchemaData schemaUrl="#Distrito_SAN_VICENTE_PANCHOLO.schema">
+            <SimpleData name="Cédula">6729353.00000000000</SimpleData>
+            <SimpleData name="Nombres_y_">NANCY FELIPA CESPEDES VERA</SimpleData>
+            <SimpleData name="Sexo">Mujer</SimpleData>
+            <SimpleData name="Cambio_de_">NO</SimpleData>
+            <SimpleData name="Titular_se">NO</SimpleData>
+            <SimpleData name="ci_UNIF">6729353.00000000000</SimpleData>
+            <SimpleData name="Situación">NO</SimpleData>
+            <SimpleData name="Comunidad">Campesina</SimpleData>
+            <SimpleData name="Modelo">Modelo 6</SimpleData>
+            <SimpleData name="Departamen">SAN PEDRO</SimpleData>
+            <SimpleData name="Distrito">SAN VICENTE PANCHOLO</SimpleData>
+            <SimpleData name="Localidad">CALLE SANTA ROSA SAN GABRIEL</SimpleData>
+            <SimpleData name="Teléfono">0982479890</SimpleData>
+            <SimpleData name="Vivienda_L">-23.98859550000</SimpleData>
+            <SimpleData name="Vivienda_1">-56.14853210000</SimpleData>
+            <SimpleData name="Situaci_1">Pol?gono</SimpleData>
+            <SimpleData name="Plantado_f">2022/10/28</SimpleData>
+            <SimpleData name="año_usar">2022/10/28</SimpleData>
+            <SimpleData name="año">2022.00000000000</SimpleData>
+            <SimpleData name="mes">octubre</SimpleData>
+            <SimpleData name="Grupo_de_p">Lote 1-G2</SimpleData>
+            <SimpleData name="ETAPA_FAO">Culminada</SimpleData>
+            <SimpleData name="Estado_del">Activo</SimpleData>
+            <SimpleData name="Empresa">Hyh Consultores SRL</SimpleData>
+            <SimpleData name="Lote">Lote 1</SimpleData>
+            <SimpleData name="X">-56.14284303000</SimpleData>
+            <SimpleData name="Y">-23.98771112000</SimpleData>
+            <SimpleData name="Sup_SIG">0.98842601390</SimpleData>
+            <SimpleData name="Shape_Leng">501.05164474600</SimpleData>
+            <SimpleData name="Shape_Area">9884.26013911000</SimpleData>
+            <SimpleData name="cedula">6729353</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>
+                -56.1418404003686,-23.9877694999472,0
+                -56.1437938999087,-23.9880943003176,0
+                -56.1438458985776,-23.9876571999238,0
+                -56.1419061995423,-23.9873249009248,0
+                -56.1418404003686,-23.9877694999472,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+    </Document>
+  </Document>
+</kml>
