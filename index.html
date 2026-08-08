@@ -385,7 +385,137 @@
     .btn-offline-descargar-zona:disabled,.btn-offline-cancelar:disabled {opacity:.55;cursor:default;}
     @media (max-width:600px){.offline-marco{left:12%;right:12%;top:18%;bottom:34%;}.offline-panel{bottom:10px;font-size:12px;}}
 
-  </style>
+  
+    .offline-zonas-btn {
+      margin-top: 7px;
+      background: #37474f;
+    }
+
+    .offline-resumen-zonas {
+      margin-top: 6px;
+      font-size: 11px;
+      color: #555;
+      min-height: 14px;
+    }
+
+    .offline-gestor {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1800;
+      background: rgba(0,0,0,0.45);
+      align-items: center;
+      justify-content: center;
+      padding: 14px;
+      box-sizing: border-box;
+    }
+
+    .offline-gestor.activo {
+      display: flex;
+    }
+
+    .offline-gestor-card {
+      width: min(520px, 100%);
+      max-height: 82vh;
+      overflow-y: auto;
+      background: #fff;
+      border-radius: 14px;
+      padding: 14px;
+      box-shadow: 0 5px 24px rgba(0,0,0,0.42);
+      color: #111;
+    }
+
+    .offline-gestor-card h3 {
+      margin: 0 0 6px 0;
+      font-size: 18px;
+    }
+
+    .offline-gestor-info {
+      font-size: 12px;
+      line-height: 1.35;
+      color: #444;
+      margin-bottom: 10px;
+    }
+
+    .offline-zona-item {
+      border: 1px solid #d9e2e1;
+      border-radius: 10px;
+      padding: 10px;
+      margin-bottom: 9px;
+      background: #fafdfc;
+    }
+
+    .offline-zona-titulo {
+      font-weight: bold;
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+
+    .offline-zona-meta {
+      font-size: 12px;
+      line-height: 1.45;
+      color: #333;
+    }
+
+    .offline-zona-ok {
+      color: #1b5e20;
+      font-weight: bold;
+      margin-top: 5px;
+    }
+
+    .offline-zona-acciones {
+      display: flex;
+      gap: 7px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    .offline-zona-acciones button,
+    .offline-gestor-footer button {
+      border: none;
+      border-radius: 7px;
+      padding: 8px 10px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .offline-btn-ver {
+      background: #1976d2;
+      color: white;
+    }
+
+    .offline-btn-borrar {
+      background: #c62828;
+      color: white;
+    }
+
+    .offline-gestor-footer {
+      display: flex;
+      gap: 8px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+
+    .offline-btn-cerrar {
+      background: #eeeeee;
+      color: #333;
+      flex: 1;
+    }
+
+    .offline-btn-borrar-todo {
+      background: #8e0000;
+      color: white;
+      flex: 1;
+    }
+
+    .offline-sin-zonas {
+      padding: 18px 8px;
+      text-align: center;
+      color: #555;
+      font-size: 13px;
+    }
+
+</style>
 </head>
 
 <body>
@@ -441,6 +571,19 @@
     <div class="offline-acciones">
       <button id="btnDescargarZona" class="btn-offline-descargar-zona" type="button" onclick="descargarZonaOffline()">Descargar zona</button>
       <button id="btnCancelarOffline" class="btn-offline-cancelar" type="button" onclick="cancelarSelectorOffline()">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+
+<div id="offlineGestor" class="offline-gestor">
+  <div class="offline-gestor-card">
+    <h3>🗂️ Zonas descargadas</h3>
+    <div id="offlineGestorInfo" class="offline-gestor-info"></div>
+    <div id="offlineListaZonas"></div>
+    <div class="offline-gestor-footer">
+      <button class="offline-btn-borrar-todo" type="button" onclick="eliminarTodasLasZonasOffline()">🗑️ Eliminar todas</button>
+      <button class="offline-btn-cerrar" type="button" onclick="cerrarZonasDescargadas()">Cerrar</button>
     </div>
   </div>
 </div>
@@ -2259,29 +2402,141 @@
     }
   }
 
+
   // ============================================================
-  // USO SIN CONEXIÓN - PRUEBA CONTROLADA
+  // USO SIN CONEXIÓN - ZONAS VERIFICADAS
   // ============================================================
-  const OFFLINE_CACHE = "proeza-offline-v1";
+
+  const OFFLINE_APP_CACHE = "proeza-offline-v1";
+  const OFFLINE_ZONE_PREFIX = "proeza-zona-";
+  const OFFLINE_ZONAS_KEY = "proeza_zonas_offline_v2";
   const OFFLINE_ZOOM_MIN = 14;
   const OFFLINE_ZOOM_MAX = 17;
-  const OFFLINE_MAX_RECURSOS = 1200;
+  const OFFLINE_MAX_RECURSOS = 1400;
+  const OFFLINE_REINTENTOS = 3;
+
   let modoSeleccionOffline = false;
   let descargaOfflineEnCurso = false;
+  let offlineHandleActivo = null;
+  let offlineRectInicial = null;
+  let offlinePointerInicial = null;
 
+  // ------------------------------------------------------------
+  // Service Worker
+  // ------------------------------------------------------------
   if ("serviceWorker" in navigator) {
     window.addEventListener("load", function() {
-      navigator.serviceWorker.register("./service-worker.js").catch(function(error) {
-        console.warn("No se pudo registrar el Service Worker:", error);
-      });
+      navigator.serviceWorker.register("./service-worker.js")
+        .catch(function(error) {
+          console.warn("No se pudo registrar el Service Worker:", error);
+        });
     });
   }
 
+  // ------------------------------------------------------------
+  // Almacenamiento persistente
+  // ------------------------------------------------------------
+  async function solicitarPersistenciaOffline() {
+    if (!navigator.storage || !navigator.storage.persist) {
+      return { soportado: false, persistente: false };
+    }
+
+    try {
+      const yaPersistente = navigator.storage.persisted
+        ? await navigator.storage.persisted()
+        : false;
+
+      if (yaPersistente) {
+        return { soportado: true, persistente: true };
+      }
+
+      const concedido = await navigator.storage.persist();
+      return { soportado: true, persistente: !!concedido };
+    } catch (e) {
+      return { soportado: true, persistente: false };
+    }
+  }
+
+  // ------------------------------------------------------------
+  // Utilidades de metadatos
+  // ------------------------------------------------------------
+  function cargarZonasOffline() {
+    try {
+      return JSON.parse(localStorage.getItem(OFFLINE_ZONAS_KEY) || "[]");
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function guardarZonasOffline(zonas) {
+    localStorage.setItem(OFFLINE_ZONAS_KEY, JSON.stringify(zonas));
+    actualizarResumenZonasOffline();
+  }
+
+  function crearIdZonaOffline() {
+    return `${Date.now()}_${Math.floor(Math.random() * 100000)}`;
+  }
+
+  function detectarDistritoOffline() {
+    const titulo = document.getElementById("tituloMapa");
+    const texto = titulo ? titulo.textContent : "";
+    const m = texto.match(/Mapa de campo\s*-\s*(.*?)\s*🗺️?$/i);
+    if (m && m[1]) return m[1].trim();
+
+    const csv = archivoCSV || "";
+    const base = decodeURIComponent(csv).replace(/\.csv$/i, "");
+    return base.split("_")[0] || "Zona";
+  }
+
+  function detectarLoteOffline() {
+    const p = archivoParcelasEstablecidas || "";
+    const m = decodeURIComponent(p).match(/Lote[_\s-]*([^./]+)/i);
+    if (m && m[1]) return m[1].replace(/_/g, " ").trim();
+
+    const csv = decodeURIComponent(archivoCSV || "").replace(/\.csv$/i, "");
+    const partes = csv.split("_");
+    return partes.length > 1 ? partes[partes.length - 1] : "-";
+  }
+
+  function formatearFechaOffline(iso) {
+    try {
+      return new Date(iso).toLocaleString("es-PY");
+    } catch (e) {
+      return iso || "-";
+    }
+  }
+
+  function formatearMBOffline(bytes) {
+    return (bytes / (1024 * 1024)).toFixed(1);
+  }
+
+  async function estimarUsoStorage() {
+    if (!navigator.storage || !navigator.storage.estimate) return null;
+    try {
+      return await navigator.storage.estimate();
+    } catch (e) {
+      return null;
+    }
+  }
+
+  // ------------------------------------------------------------
+  // Selector de zona
+  // ------------------------------------------------------------
   function activarSelectorOffline() {
-    if (!navigator.onLine) { alert("Para preparar una zona sin conexión primero necesitás tener internet."); return; }
+    if (!navigator.onLine) {
+      alert("Para preparar una zona sin conexión primero necesitás tener internet.");
+      return;
+    }
+
     modoSeleccionOffline = true;
     document.getElementById("offlineSelector").classList.add("activo");
     document.querySelector(".panel").classList.remove("panel-visible");
+    document.getElementById("offlineProgreso").classList.remove("activo");
+    document.getElementById("offlineBarra").style.width = "0%";
+    document.getElementById("offlineTextoProgreso").textContent = "Preparando descarga…";
+    document.getElementById("btnDescargarZona").disabled = false;
+    document.getElementById("btnCancelarOffline").disabled = false;
+    document.getElementById("btnCancelarOffline").textContent = "Cancelar";
     actualizarEstimacionOffline();
   }
 
@@ -2290,82 +2545,40 @@
     modoSeleccionOffline = false;
     document.getElementById("offlineSelector").classList.remove("activo");
     document.getElementById("offlineProgreso").classList.remove("activo");
-    document.getElementById("btnCancelarOffline").textContent = "Cancelar";
   }
 
   function obtenerBoundsMarcoOffline() {
     const marco = document.getElementById("offlineMarco");
     const mapaRect = map.getContainer().getBoundingClientRect();
     const marcoRect = marco.getBoundingClientRect();
-    const p1 = L.point(marcoRect.left - mapaRect.left, marcoRect.top - mapaRect.top);
-    const p2 = L.point(marcoRect.right - mapaRect.left, marcoRect.bottom - mapaRect.top);
+
+    const p1 = L.point(
+      marcoRect.left - mapaRect.left,
+      marcoRect.top - mapaRect.top
+    );
+    const p2 = L.point(
+      marcoRect.right - mapaRect.left,
+      marcoRect.bottom - mapaRect.top
+    );
+
     const nw = map.containerPointToLatLng(p1);
     const se = map.containerPointToLatLng(p2);
+
     return L.latLngBounds(nw, se);
   }
 
-  function lon2tile(lon, z){ return Math.floor((lon + 180) / 360 * Math.pow(2,z)); }
-  function lat2tile(lat, z){ const r=lat*Math.PI/180; return Math.floor((1-Math.asinh(Math.tan(r))/Math.PI)/2*Math.pow(2,z)); }
-  function limitarTile(v,z){ const m=Math.pow(2,z)-1; return Math.max(0,Math.min(m,v)); }
-
-  function obtenerTilesParaBounds(bounds){
-    const urls=[];
-    const oeste=bounds.getWest(), este=bounds.getEast();
-    const norte=Math.min(85.0511,bounds.getNorth()), sur=Math.max(-85.0511,bounds.getSouth());
-    for(let z=OFFLINE_ZOOM_MIN; z<=OFFLINE_ZOOM_MAX; z++){
-      let xMin=limitarTile(lon2tile(oeste,z),z), xMax=limitarTile(lon2tile(este,z),z);
-      let yMin=limitarTile(lat2tile(norte,z),z), yMax=limitarTile(lat2tile(sur,z),z);
-      if(xMin>xMax)[xMin,xMax]=[xMax,xMin]; if(yMin>yMax)[yMin,yMax]=[yMax,yMin];
-      for(let x=xMin;x<=xMax;x++) for(let y=yMin;y<=yMax;y++){
-        urls.push(`https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/${z}/${y}/${x}`);
-        urls.push(`https://services.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/${z}/${y}/${x}`);
-      }
-    }
-    return Array.from(new Set(urls));
+  // ------------------------------------------------------------
+  // Vértices ajustables
+  // ------------------------------------------------------------
+  function limitarOffline(valor, min, max) {
+    return Math.max(min, Math.min(max, valor));
   }
 
-  function recursosDatosOffline(){
-    const r=["./","./index.html","Logo PROEZA (1).png","https://unpkg.com/leaflet/dist/leaflet.css","https://unpkg.com/leaflet/dist/leaflet.js","https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js","https://cdn.jsdelivr.net/npm/leaflet-omnivore@0.3.4/leaflet-omnivore.min.js","https://unpkg.com/leaflet-rotate@0.2.8/dist/leaflet-rotate-src.js"];
-    if(archivoCSV)r.push(archivoCSV); if(archivoKML)r.push(archivoKML); if(archivoKMLP)r.push(archivoKMLP); if(archivoCocinas)r.push(archivoCocinas); if(archivoParcelasEstablecidas)r.push(archivoParcelasEstablecidas);
-    return Array.from(new Set(r.filter(Boolean)));
-  }
+  function iniciarAjusteOffline(event) {
+    if (!modoSeleccionOffline || descargaOfflineEnCurso) return;
 
-  function actualizarEstimacionOffline(){
-    if(!modoSeleccionOffline)return;
-    const tiles=obtenerTilesParaBounds(obtenerBoundsMarcoOffline());
-    const total=tiles.length+recursosDatosOffline().length;
-    const mb=(tiles.length*55*1024/(1024*1024)).toFixed(1);
-    const caja=document.getElementById("offlineEstimacion");
-    if(total>OFFLINE_MAX_RECURSOS){
-      caja.innerHTML=`⚠️ <b>Zona demasiado grande.</b><br>Recursos estimados: ${total}. Acercá un poco más el mapa para reducir el área.`;
-      document.getElementById("btnDescargarZona").disabled=true;
-    }else{
-      caja.innerHTML=`<b>Zona seleccionada</b><br>Zoom offline: ${OFFLINE_ZOOM_MIN}–${OFFLINE_ZOOM_MAX}<br>Recursos estimados: ${total}<br>Tamaño aproximado de imágenes: ${mb} MB`;
-      document.getElementById("btnDescargarZona").disabled=false;
-    }
-  }
-
-  async function fetchParaCache(url){
-    const absoluta=new URL(url,window.location.href); const same=absoluta.origin===window.location.origin;
-    const response=await fetch(absoluta.href,{mode:same?"same-origin":"no-cors",cache:"reload"});
-    if(!response.ok && response.type!=="opaque") throw new Error(`No se pudo descargar ${absoluta.href}`);
-    return {request:new Request(absoluta.href,{mode:same?"same-origin":"no-cors"}),response};
-  }
-
-
-  // Ajuste manual del rectángulo de descarga
-  let offlineHandleActivo = null;
-  let offlineRectInicial = null;
-  let offlinePointerInicial = null;
-
-  function limitarOffline(valor,min,max){
-    return Math.max(min,Math.min(max,valor));
-  }
-
-  function iniciarAjusteOffline(event){
-    if(!modoSeleccionOffline || descargaOfflineEnCurso) return;
     const handle = event.currentTarget.dataset.handle;
-    if(!handle) return;
+    if (!handle) return;
 
     event.preventDefault();
     event.stopPropagation();
@@ -2382,16 +2595,16 @@
       right: rectMarco.right - rectSelector.left,
       bottom: rectMarco.bottom - rectSelector.top
     };
-    offlinePointerInicial = {x:event.clientX,y:event.clientY};
+    offlinePointerInicial = { x: event.clientX, y: event.clientY };
     marco.classList.add("ajustando");
 
-    if(event.currentTarget.setPointerCapture){
-      try{event.currentTarget.setPointerCapture(event.pointerId);}catch(e){}
+    if (event.currentTarget.setPointerCapture) {
+      try { event.currentTarget.setPointerCapture(event.pointerId); } catch (e) {}
     }
   }
 
-  function moverAjusteOffline(event){
-    if(!offlineHandleActivo || !offlineRectInicial || !offlinePointerInicial) return;
+  function moverAjusteOffline(event) {
+    if (!offlineHandleActivo || !offlineRectInicial || !offlinePointerInicial) return;
 
     event.preventDefault();
     event.stopPropagation();
@@ -2414,33 +2627,35 @@
     let top = offlineRectInicial.top;
     let bottom = offlineRectInicial.bottom;
 
-    if(offlineHandleActivo.includes("w")){
+    if (offlineHandleActivo.includes("w")) {
       left = limitarOffline(offlineRectInicial.left + dx, margen, right - minAncho);
     }
-    if(offlineHandleActivo.includes("e")){
+    if (offlineHandleActivo.includes("e")) {
       right = limitarOffline(offlineRectInicial.right + dx, left + minAncho, rectSelector.width - margen);
     }
-    if(offlineHandleActivo.includes("n")){
+    if (offlineHandleActivo.includes("n")) {
       top = limitarOffline(offlineRectInicial.top + dy, margen, bottom - minAlto);
     }
-    if(offlineHandleActivo.includes("s")){
+    if (offlineHandleActivo.includes("s")) {
       bottom = limitarOffline(offlineRectInicial.bottom + dy, top + minAlto, limiteInferior);
     }
 
     marco.style.left = `${left}px`;
     marco.style.top = `${top}px`;
-    marco.style.right = `${Math.max(margen,rectSelector.width-right)}px`;
-    marco.style.bottom = `${Math.max(margen,rectSelector.height-bottom)}px`;
+    marco.style.right = `${Math.max(margen, rectSelector.width - right)}px`;
+    marco.style.bottom = `${Math.max(margen, rectSelector.height - bottom)}px`;
 
     actualizarEstimacionOffline();
   }
 
-  function finalizarAjusteOffline(event){
-    if(!offlineHandleActivo) return;
-    if(event){
+  function finalizarAjusteOffline(event) {
+    if (!offlineHandleActivo) return;
+
+    if (event) {
       event.preventDefault();
       event.stopPropagation();
     }
+
     document.getElementById("offlineMarco").classList.remove("ajustando");
     offlineHandleActivo = null;
     offlineRectInicial = null;
@@ -2448,41 +2663,554 @@
     actualizarEstimacionOffline();
   }
 
-  document.querySelectorAll(".offline-handle").forEach(function(handle){
-    handle.addEventListener("pointerdown",iniciarAjusteOffline,{passive:false});
-    handle.addEventListener("pointermove",moverAjusteOffline,{passive:false});
-    handle.addEventListener("pointerup",finalizarAjusteOffline,{passive:false});
-    handle.addEventListener("pointercancel",finalizarAjusteOffline,{passive:false});
+  document.querySelectorAll(".offline-handle").forEach(function(handle) {
+    handle.addEventListener("pointerdown", iniciarAjusteOffline, { passive: false });
+    handle.addEventListener("pointermove", moverAjusteOffline, { passive: false });
+    handle.addEventListener("pointerup", finalizarAjusteOffline, { passive: false });
+    handle.addEventListener("pointercancel", finalizarAjusteOffline, { passive: false });
   });
 
-  async function descargarZonaOffline(){
-    if(descargaOfflineEnCurso)return;
-    if(!navigator.onLine){alert("No hay conexión. La zona debe prepararse antes de entrar al área sin cobertura.");return;}
-    const bounds=obtenerBoundsMarcoOffline();
-    const todos=Array.from(new Set([...recursosDatosOffline(),...obtenerTilesParaBounds(bounds)]));
-    if(todos.length>OFFLINE_MAX_RECURSOS){alert("La zona seleccionada es demasiado grande. Acercá más el mapa y volvé a intentar.");return;}
-    descargaOfflineEnCurso=true;
-    const btnD=document.getElementById("btnDescargarZona"), btnC=document.getElementById("btnCancelarOffline");
-    const prog=document.getElementById("offlineProgreso"), texto=document.getElementById("offlineTextoProgreso"), barra=document.getElementById("offlineBarra");
-    btnD.disabled=true; btnC.disabled=true; prog.classList.add("activo"); barra.style.width="0%";
-    let completados=0, fallidos=0;
-    try{
-      const cache=await caches.open(OFFLINE_CACHE); const TAMANO_LOTE=6;
-      for(let i=0;i<todos.length;i+=TAMANO_LOTE){
-        const lote=todos.slice(i,i+TAMANO_LOTE);
-        await Promise.all(lote.map(async url=>{
-          try{const item=await fetchParaCache(url); await cache.put(item.request,item.response.clone());}
-          catch(e){fallidos++; console.warn("No se pudo almacenar offline:",url,e);}
-          finally{completados++; const p=Math.round(completados/todos.length*100); barra.style.width=`${p}%`; texto.textContent=`Descargando ${completados} de ${todos.length} (${p}%)`;}
-        }));
-      }
-      localStorage.setItem("proeza_ultima_zona_offline",JSON.stringify({fecha:new Date().toISOString(),campania:CAMPANIA,csv:archivoCSV,bounds:{north:bounds.getNorth(),south:bounds.getSouth(),east:bounds.getEast(),west:bounds.getWest()},zoomMin:OFFLINE_ZOOM_MIN,zoomMax:OFFLINE_ZOOM_MAX,recursos:todos.length,fallidos}));
-      texto.textContent=fallidos===0?"✅ Zona preparada correctamente para uso sin conexión.":`✅ Zona preparada. ${fallidos} recursos no pudieron descargarse.`;
-      barra.style.width="100%"; descargaOfflineEnCurso=false; btnC.disabled=false; btnC.textContent="Cerrar";
-    }catch(e){console.error(e); texto.textContent="❌ No se pudo completar la descarga de la zona."; descargaOfflineEnCurso=false; btnD.disabled=false; btnC.disabled=false;}
+  // ------------------------------------------------------------
+  // Cálculo de teselas
+  // ------------------------------------------------------------
+  function lon2tile(lon, zoom) {
+    return Math.floor((lon + 180) / 360 * Math.pow(2, zoom));
   }
 
-  map.on("moveend zoomend",function(){if(modoSeleccionOffline && !descargaOfflineEnCurso) actualizarEstimacionOffline();});
+  function lat2tile(lat, zoom) {
+    const latRad = lat * Math.PI / 180;
+    return Math.floor(
+      (1 - Math.asinh(Math.tan(latRad)) / Math.PI) / 2 * Math.pow(2, zoom)
+    );
+  }
+
+  function limitarTile(valor, zoom) {
+    const max = Math.pow(2, zoom) - 1;
+    return Math.max(0, Math.min(max, valor));
+  }
+
+  function obtenerTilesParaBounds(bounds) {
+    const imagery = [];
+    const referencia = [];
+
+    const oeste = bounds.getWest();
+    const este = bounds.getEast();
+    const norte = Math.min(85.0511, bounds.getNorth());
+    const sur = Math.max(-85.0511, bounds.getSouth());
+
+    for (let z = OFFLINE_ZOOM_MIN; z <= OFFLINE_ZOOM_MAX; z++) {
+      let xMin = limitarTile(lon2tile(oeste, z), z);
+      let xMax = limitarTile(lon2tile(este, z), z);
+      let yMin = limitarTile(lat2tile(norte, z), z);
+      let yMax = limitarTile(lat2tile(sur, z), z);
+
+      if (xMin > xMax) [xMin, xMax] = [xMax, xMin];
+      if (yMin > yMax) [yMin, yMax] = [yMax, yMin];
+
+      for (let x = xMin; x <= xMax; x++) {
+        for (let y = yMin; y <= yMax; y++) {
+          imagery.push(
+            `https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/${z}/${y}/${x}`
+          );
+          referencia.push(
+            `https://services.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/${z}/${y}/${x}`
+          );
+        }
+      }
+    }
+
+    return {
+      imagery: Array.from(new Set(imagery)),
+      referencia: Array.from(new Set(referencia))
+    };
+  }
+
+  // ------------------------------------------------------------
+  // Recursos obligatorios
+  // ------------------------------------------------------------
+  function recursosAppObligatorios() {
+    return Array.from(new Set([
+      "./",
+      "./index.html",
+      "./service-worker.js",
+      "Logo PROEZA (1).png",
+      "https://unpkg.com/leaflet/dist/leaflet.css",
+      "https://unpkg.com/leaflet/dist/leaflet.js",
+      "https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js",
+      "https://cdn.jsdelivr.net/npm/leaflet-omnivore@0.3.4/leaflet-omnivore.min.js",
+      "https://unpkg.com/leaflet-rotate@0.2.8/dist/leaflet-rotate-src.js"
+    ]));
+  }
+
+  function recursosDatosObligatorios() {
+    const recursos = [];
+
+    if (archivoCSV) recursos.push(archivoCSV);
+    if (archivoKML) recursos.push(archivoKML);
+    if (archivoKMLP) recursos.push(archivoKMLP);
+    if (archivoCocinas) recursos.push(archivoCocinas);
+    if (archivoParcelasEstablecidas) recursos.push(archivoParcelasEstablecidas);
+
+    return Array.from(new Set(recursos.filter(Boolean)));
+  }
+
+  function actualizarEstimacionOffline() {
+    if (!modoSeleccionOffline) return;
+
+    const bounds = obtenerBoundsMarcoOffline();
+    const tiles = obtenerTilesParaBounds(bounds);
+    const app = recursosAppObligatorios();
+    const datos = recursosDatosObligatorios();
+
+    const totalTiles = tiles.imagery.length + tiles.referencia.length;
+    const totalRecursos = totalTiles + app.length + datos.length;
+
+    // Estimación aproximada solo para orientación del técnico.
+    const bytesEstimados = totalTiles * 55 * 1024;
+
+    const caja = document.getElementById("offlineEstimacion");
+
+    if (totalRecursos > OFFLINE_MAX_RECURSOS) {
+      caja.innerHTML =
+        `⚠️ <b>Zona demasiado grande.</b><br>` +
+        `Recursos estimados: ${totalRecursos}.<br>` +
+        `Acercá el mapa o reducí el recuadro antes de descargar.`;
+      document.getElementById("btnDescargarZona").disabled = true;
+    } else {
+      caja.innerHTML =
+        `<b>Zona seleccionada</b><br>` +
+        `Podés ajustar las 4 esquinas manualmente.<br>` +
+        `Zoom offline: ${OFFLINE_ZOOM_MIN}–${OFFLINE_ZOOM_MAX}<br>` +
+        `Recursos obligatorios: ${totalRecursos}<br>` +
+        `Tamaño aproximado del mapa: ${formatearMBOffline(bytesEstimados)} MB`;
+      document.getElementById("btnDescargarZona").disabled = false;
+    }
+  }
+
+  // ------------------------------------------------------------
+  // Descarga y verificación estricta
+  // ------------------------------------------------------------
+  async function fetchParaCache(url) {
+    const absoluta = new URL(url, window.location.href);
+    const mismaOrigen = absoluta.origin === window.location.origin;
+
+    const request = new Request(absoluta.href, {
+      mode: mismaOrigen ? "same-origin" : "no-cors",
+      cache: "reload"
+    });
+
+    const respuesta = await fetch(request);
+
+    if (!respuesta.ok && respuesta.type !== "opaque") {
+      throw new Error(`No se pudo descargar ${absoluta.href}`);
+    }
+
+    return { request, response: respuesta };
+  }
+
+  async function guardarRecursoConReintentos(cache, url, maxIntentos) {
+    let ultimoError = null;
+
+    for (let intento = 1; intento <= maxIntentos; intento++) {
+      try {
+        const item = await fetchParaCache(url);
+        await cache.put(item.request, item.response.clone());
+
+        const verificado = await cache.match(item.request);
+        if (verificado) return true;
+
+        ultimoError = new Error("El recurso no quedó almacenado.");
+      } catch (error) {
+        ultimoError = error;
+      }
+
+      await new Promise(resolve => setTimeout(resolve, 350 * intento));
+    }
+
+    console.warn("Recurso no verificado:", url, ultimoError);
+    return false;
+  }
+
+  async function verificarRecursosEnCache(cache, urls) {
+    const faltantes = [];
+
+    for (const url of urls) {
+      const absoluta = new URL(url, window.location.href).href;
+      const encontrado = await cache.match(absoluta);
+      if (!encontrado) faltantes.push(url);
+    }
+
+    return faltantes;
+  }
+
+  async function descargarListaEnCache(cache, urls, onProgress, inicio, totalGlobal) {
+    const TAMANO_LOTE = 6;
+    let procesados = inicio;
+    const fallidos = [];
+
+    for (let i = 0; i < urls.length; i += TAMANO_LOTE) {
+      const lote = urls.slice(i, i + TAMANO_LOTE);
+
+      const resultados = await Promise.all(
+        lote.map(async url => {
+          const ok = await guardarRecursoConReintentos(cache, url, OFFLINE_REINTENTOS);
+          procesados++;
+          if (onProgress) onProgress(procesados, totalGlobal);
+          return { url, ok };
+        })
+      );
+
+      resultados.forEach(r => {
+        if (!r.ok) fallidos.push(r.url);
+      });
+    }
+
+    return { procesados, fallidos };
+  }
+
+  async function descargarZonaOffline() {
+    if (descargaOfflineEnCurso) return;
+
+    if (!navigator.onLine) {
+      alert("No hay conexión. La zona debe prepararse antes de entrar al área sin cobertura.");
+      return;
+    }
+
+    const bounds = obtenerBoundsMarcoOffline();
+    const tiles = obtenerTilesParaBounds(bounds);
+    const appRecursos = recursosAppObligatorios();
+    const datosRecursos = recursosDatosObligatorios();
+    const zonaRecursos = [
+      ...datosRecursos,
+      ...tiles.imagery,
+      ...tiles.referencia
+    ];
+
+    const todos = Array.from(new Set([...appRecursos, ...zonaRecursos]));
+
+    if (todos.length > OFFLINE_MAX_RECURSOS) {
+      alert("La zona seleccionada es demasiado grande. Acercá más el mapa o reducí el recuadro.");
+      return;
+    }
+
+    descargaOfflineEnCurso = true;
+
+    const btnDescargar = document.getElementById("btnDescargarZona");
+    const btnCancelar = document.getElementById("btnCancelarOffline");
+    const progreso = document.getElementById("offlineProgreso");
+    const texto = document.getElementById("offlineTextoProgreso");
+    const barra = document.getElementById("offlineBarra");
+
+    btnDescargar.disabled = true;
+    btnCancelar.disabled = true;
+    progreso.classList.add("activo");
+    barra.style.width = "0%";
+    texto.textContent = "Solicitando almacenamiento protegido…";
+
+    const persistencia = await solicitarPersistenciaOffline();
+
+    const zonaId = crearIdZonaOffline();
+    const zonaCacheName = `${OFFLINE_ZONE_PREFIX}${zonaId}`;
+
+    try {
+      const appCache = await caches.open(OFFLINE_APP_CACHE);
+      const zonaCache = await caches.open(zonaCacheName);
+
+      let procesados = 0;
+      const totalGlobal = todos.length;
+
+      function onProgress(done, total) {
+        const porcentaje = Math.round((done / total) * 100);
+        barra.style.width = `${porcentaje}%`;
+        texto.textContent = `Descargando y verificando ${done} de ${total} (${porcentaje}%)`;
+      }
+
+      // 1) Aplicación base: obligatoria
+      let resultado = await descargarListaEnCache(
+        appCache,
+        appRecursos,
+        onProgress,
+        procesados,
+        totalGlobal
+      );
+      procesados = resultado.procesados;
+
+      // 2) Datos + mapa: obligatorios
+      resultado = await descargarListaEnCache(
+        zonaCache,
+        zonaRecursos,
+        onProgress,
+        procesados,
+        totalGlobal
+      );
+      procesados = resultado.procesados;
+
+      texto.textContent = "Verificando que toda la zona esté almacenada…";
+
+      // Verificación final real del Cache Storage
+      const faltantesApp = await verificarRecursosEnCache(appCache, appRecursos);
+      const faltantesZona = await verificarRecursosEnCache(zonaCache, zonaRecursos);
+      const faltantes = [...faltantesApp, ...faltantesZona];
+
+      if (faltantes.length > 0) {
+        await caches.delete(zonaCacheName);
+
+        texto.textContent =
+          "⚠️ Descarga incompleta. La zona NO quedó habilitada para uso sin conexión.";
+        barra.style.width = "100%";
+        barra.style.background = "#c62828";
+
+        btnDescargar.disabled = false;
+        btnDescargar.textContent = "Reintentar descarga";
+        btnCancelar.disabled = false;
+        btnCancelar.textContent = "Cerrar";
+        descargaOfflineEnCurso = false;
+        return;
+      }
+
+      const estimacion = await estimarUsoStorage();
+      const totalTiles = tiles.imagery.length + tiles.referencia.length;
+      const bytesEstimados = totalTiles * 55 * 1024;
+
+      const zona = {
+        id: zonaId,
+        cacheName: zonaCacheName,
+        distrito: detectarDistritoOffline(),
+        lote: detectarLoteOffline(),
+        campania: CAMPANIA,
+        fecha: new Date().toISOString(),
+        url: window.location.href,
+        csv: archivoCSV,
+        kml: archivoKML,
+        kmlp: archivoKMLP,
+        cocinas: archivoCocinas,
+        parcelas: archivoParcelasEstablecidas,
+        bounds: {
+          north: bounds.getNorth(),
+          south: bounds.getSouth(),
+          east: bounds.getEast(),
+          west: bounds.getWest()
+        },
+        zoomMin: OFFLINE_ZOOM_MIN,
+        zoomMax: OFFLINE_ZOOM_MAX,
+        recursos: todos.length,
+        tiles: totalTiles,
+        bytesEstimados: bytesEstimados,
+        persistenciaSolicitada: persistencia.soportado,
+        almacenamientoPersistente: persistencia.persistente,
+        verificada: true
+      };
+
+      const zonas = cargarZonasOffline();
+      zonas.unshift(zona);
+      guardarZonasOffline(zonas);
+
+      barra.style.width = "100%";
+      barra.style.background = "#00897b";
+      texto.textContent = "✅ Zona descargada y verificada para uso sin conexión.";
+
+      btnDescargar.style.display = "none";
+      btnCancelar.disabled = false;
+      btnCancelar.textContent = "Cerrar";
+      descargaOfflineEnCurso = false;
+
+    } catch (error) {
+      console.error(error);
+      await caches.delete(zonaCacheName).catch(() => {});
+
+      texto.textContent =
+        "⚠️ No se pudo completar la descarga. La zona NO quedó habilitada para uso sin conexión.";
+      barra.style.width = "100%";
+      barra.style.background = "#c62828";
+      btnDescargar.disabled = false;
+      btnDescargar.textContent = "Reintentar descarga";
+      btnCancelar.disabled = false;
+      btnCancelar.textContent = "Cerrar";
+      descargaOfflineEnCurso = false;
+    }
+  }
+
+  // ------------------------------------------------------------
+  // Gestor de zonas descargadas
+  // ------------------------------------------------------------
+  async function abrirZonasDescargadas() {
+    document.querySelector(".panel").classList.remove("panel-visible");
+    document.getElementById("offlineGestor").classList.add("activo");
+    await renderZonasDescargadas();
+  }
+
+  function cerrarZonasDescargadas() {
+    document.getElementById("offlineGestor").classList.remove("activo");
+  }
+
+  async function comprobarZonaOffline(zona) {
+    if (!zona || !zona.cacheName) return false;
+
+    try {
+      const cacheZona = await caches.open(zona.cacheName);
+
+      const recursos = [];
+      if (zona.csv) recursos.push(zona.csv);
+      if (zona.kml) recursos.push(zona.kml);
+      if (zona.kmlp) recursos.push(zona.kmlp);
+      if (zona.cocinas) recursos.push(zona.cocinas);
+      if (zona.parcelas) recursos.push(zona.parcelas);
+
+      const faltantesDatos = await verificarRecursosEnCache(cacheZona, recursos);
+
+      // Para el listado no reenumeramos miles de tiles: comprobamos que el cache exista
+      // y que tenga al menos el volumen esperado de entradas.
+      const keys = await cacheZona.keys();
+      const cantidadEsperadaMinima = Math.max(1, (zona.tiles || 0) + recursos.length);
+
+      return faltantesDatos.length === 0 && keys.length >= cantidadEsperadaMinima;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  async function renderZonasDescargadas() {
+    const lista = document.getElementById("offlineListaZonas");
+    const info = document.getElementById("offlineGestorInfo");
+    const zonas = cargarZonasOffline();
+
+    lista.innerHTML = "";
+
+    const estimacion = await estimarUsoStorage();
+    let usoTexto = "";
+
+    if (estimacion && estimacion.usage !== undefined) {
+      usoTexto =
+        `Almacenamiento usado por este sitio: ~${formatearMBOffline(estimacion.usage)} MB.`;
+    }
+
+    let persistente = false;
+    if (navigator.storage && navigator.storage.persisted) {
+      try { persistente = await navigator.storage.persisted(); } catch (e) {}
+    }
+
+    info.innerHTML =
+      `${usoTexto}<br>` +
+      `${persistente
+        ? "✅ El navegador concedió almacenamiento persistente."
+        : "ℹ️ El almacenamiento depende de la política del navegador. No borres los datos del sitio."}`;
+
+    if (!zonas.length) {
+      lista.innerHTML =
+        '<div class="offline-sin-zonas">No hay zonas descargadas en este dispositivo.</div>';
+      actualizarResumenZonasOffline();
+      return;
+    }
+
+    for (const zona of zonas) {
+      const vigente = await comprobarZonaOffline(zona);
+
+      const item = document.createElement("div");
+      item.className = "offline-zona-item";
+
+      item.innerHTML = `
+        <div class="offline-zona-titulo">${zona.distrito || "Zona"} · Lote ${zona.lote || "-"}</div>
+        <div class="offline-zona-meta">
+          Campaña: ${zona.campania || "-"}<br>
+          Descargada: ${formatearFechaOffline(zona.fecha)}<br>
+          Zoom: ${zona.zoomMin || "-"}–${zona.zoomMax || "-"}<br>
+          Tamaño aproximado del mapa: ~${formatearMBOffline(zona.bytesEstimados || 0)} MB<br>
+          Recursos verificados al descargar: ${zona.recursos || "-"}
+        </div>
+        <div class="offline-zona-ok">
+          ${vigente ? "✅ Disponible sin conexión" : "⚠️ Zona incompleta — volver a descargar"}
+        </div>
+        <div class="offline-zona-acciones">
+          <button class="offline-btn-ver" type="button">🔎 Ver zona</button>
+          <button class="offline-btn-borrar" type="button">🗑️ Eliminar</button>
+        </div>
+      `;
+
+      const botones = item.querySelectorAll("button");
+      botones[0].onclick = function() {
+        window.location.href = zona.url;
+      };
+      botones[1].onclick = function() {
+        eliminarZonaOffline(zona.id);
+      };
+
+      lista.appendChild(item);
+    }
+
+    actualizarResumenZonasOffline();
+  }
+
+  async function eliminarZonaOffline(id) {
+    const zonas = cargarZonasOffline();
+    const zona = zonas.find(z => z.id === id);
+
+    if (!zona) return;
+
+    const confirmar = confirm(
+      `¿Eliminar la zona descargada ${zona.distrito || ""} · Lote ${zona.lote || "-"}?\n\n` +
+      "Esto liberará el espacio utilizado por esa zona."
+    );
+
+    if (!confirmar) return;
+
+    if (zona.cacheName) {
+      await caches.delete(zona.cacheName);
+    }
+
+    guardarZonasOffline(zonas.filter(z => z.id !== id));
+    await renderZonasDescargadas();
+  }
+
+  async function eliminarTodasLasZonasOffline() {
+    const zonas = cargarZonasOffline();
+    if (!zonas.length) return;
+
+    const confirmar = confirm(
+      "¿Eliminar TODAS las zonas descargadas?\n\n" +
+      "Se liberará el espacio utilizado por los mapas offline."
+    );
+
+    if (!confirmar) return;
+
+    for (const zona of zonas) {
+      if (zona.cacheName) {
+        await caches.delete(zona.cacheName);
+      }
+    }
+
+    guardarZonasOffline([]);
+    await renderZonasDescargadas();
+  }
+
+  async function actualizarResumenZonasOffline() {
+    const el = document.getElementById("offlineResumenZonas");
+    if (!el) return;
+
+    const zonas = cargarZonasOffline();
+
+    if (!zonas.length) {
+      el.textContent = "Offline: sin zonas descargadas";
+      return;
+    }
+
+    const totalBytes = zonas.reduce(
+      (acc, z) => acc + Number(z.bytesEstimados || 0),
+      0
+    );
+
+    el.textContent =
+      `Offline: ${zonas.length} zona${zonas.length === 1 ? "" : "s"} · ~${formatearMBOffline(totalBytes)} MB`;
+  }
+
+  // Recalcular estimación al mover o acercar el mapa.
+  map.on("moveend zoomend", function() {
+    if (modoSeleccionOffline && !descargaOfflineEnCurso) {
+      actualizarEstimacionOffline();
+    }
+  });
+
+  // Mostrar resumen al iniciar.
+  setTimeout(actualizarResumenZonasOffline, 1200);
 
 </script>
 
