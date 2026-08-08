@@ -363,6 +363,13 @@
     .offline-selector {display:none;position:fixed;inset:0;z-index:1600;pointer-events:none;}
     .offline-selector.activo {display:block;}
     .offline-marco {position:absolute;left:18%;right:18%;top:18%;bottom:28%;border:4px solid #00a884;border-radius:10px;background:rgba(0,168,132,.10);box-shadow:0 0 0 9999px rgba(0,0,0,.30),0 0 0 2px rgba(255,255,255,.9) inset;pointer-events:none;}
+    .offline-handle{position:absolute;width:24px;height:24px;border-radius:50%;background:#00a884;border:3px solid white;box-shadow:0 2px 7px rgba(0,0,0,.45);pointer-events:auto;touch-action:none;z-index:4;}
+    .offline-handle-nw{left:-14px;top:-14px;cursor:nwse-resize;}
+    .offline-handle-ne{right:-14px;top:-14px;cursor:nesw-resize;}
+    .offline-handle-sw{left:-14px;bottom:-14px;cursor:nesw-resize;}
+    .offline-handle-se{right:-14px;bottom:-14px;cursor:nwse-resize;}
+    .offline-marco.ajustando{box-shadow:0 0 0 9999px rgba(0,0,0,.30),0 0 0 2px rgba(255,255,255,.9) inset,0 0 0 4px rgba(0,168,132,.20);}
+
     .offline-panel {position:absolute;left:50%;bottom:18px;transform:translateX(-50%);width:min(430px,calc(100% - 24px));box-sizing:border-box;background:white;border-radius:14px;padding:13px;box-shadow:0 4px 18px rgba(0,0,0,.40);pointer-events:auto;color:#111;font-size:13px;}
     .offline-panel h4 {margin:0 0 6px 0;font-size:16px;}
     .offline-panel p {margin:4px 0 8px 0;line-height:1.35;}
@@ -417,10 +424,15 @@
 
 
 <div id="offlineSelector" class="offline-selector">
-  <div id="offlineMarco" class="offline-marco"></div>
+  <div id="offlineMarco" class="offline-marco">
+    <div class="offline-handle offline-handle-nw" data-handle="nw"></div>
+    <div class="offline-handle offline-handle-ne" data-handle="ne"></div>
+    <div class="offline-handle offline-handle-sw" data-handle="sw"></div>
+    <div class="offline-handle offline-handle-se" data-handle="se"></div>
+  </div>
   <div class="offline-panel">
     <h4>📥 Preparar zona sin conexión</h4>
-    <p>Mové y acercá el mapa hasta que el área de trabajo quede dentro del recuadro. Se descargarán las imágenes satelitales y los datos necesarios del mapa.</p>
+    <p>Mové y acercá el mapa hasta que el área de trabajo quede dentro del recuadro. Si necesitás cambiar su forma, arrastrá cualquiera de los cuatro puntos de las esquinas. Se descargarán las imágenes satelitales y los datos necesarios del mapa.</p>
     <div id="offlineEstimacion" class="offline-estimacion">Calculando zona…</div>
     <div id="offlineProgreso" class="offline-progreso">
       <div id="offlineTextoProgreso">Preparando descarga…</div>
@@ -2339,6 +2351,109 @@
     if(!response.ok && response.type!=="opaque") throw new Error(`No se pudo descargar ${absoluta.href}`);
     return {request:new Request(absoluta.href,{mode:same?"same-origin":"no-cors"}),response};
   }
+
+
+  // Ajuste manual del rectángulo de descarga
+  let offlineHandleActivo = null;
+  let offlineRectInicial = null;
+  let offlinePointerInicial = null;
+
+  function limitarOffline(valor,min,max){
+    return Math.max(min,Math.min(max,valor));
+  }
+
+  function iniciarAjusteOffline(event){
+    if(!modoSeleccionOffline || descargaOfflineEnCurso) return;
+    const handle = event.currentTarget.dataset.handle;
+    if(!handle) return;
+
+    event.preventDefault();
+    event.stopPropagation();
+
+    const marco = document.getElementById("offlineMarco");
+    const selector = document.getElementById("offlineSelector");
+    const rectMarco = marco.getBoundingClientRect();
+    const rectSelector = selector.getBoundingClientRect();
+
+    offlineHandleActivo = handle;
+    offlineRectInicial = {
+      left: rectMarco.left - rectSelector.left,
+      top: rectMarco.top - rectSelector.top,
+      right: rectMarco.right - rectSelector.left,
+      bottom: rectMarco.bottom - rectSelector.top
+    };
+    offlinePointerInicial = {x:event.clientX,y:event.clientY};
+    marco.classList.add("ajustando");
+
+    if(event.currentTarget.setPointerCapture){
+      try{event.currentTarget.setPointerCapture(event.pointerId);}catch(e){}
+    }
+  }
+
+  function moverAjusteOffline(event){
+    if(!offlineHandleActivo || !offlineRectInicial || !offlinePointerInicial) return;
+
+    event.preventDefault();
+    event.stopPropagation();
+
+    const marco = document.getElementById("offlineMarco");
+    const selector = document.getElementById("offlineSelector");
+    const rectSelector = selector.getBoundingClientRect();
+    const panelRect = document.querySelector(".offline-panel").getBoundingClientRect();
+
+    const dx = event.clientX - offlinePointerInicial.x;
+    const dy = event.clientY - offlinePointerInicial.y;
+
+    const margen = 12;
+    const minAncho = 120;
+    const minAlto = 120;
+    const limiteInferior = Math.max(160, panelRect.top - rectSelector.top - 12);
+
+    let left = offlineRectInicial.left;
+    let right = offlineRectInicial.right;
+    let top = offlineRectInicial.top;
+    let bottom = offlineRectInicial.bottom;
+
+    if(offlineHandleActivo.includes("w")){
+      left = limitarOffline(offlineRectInicial.left + dx, margen, right - minAncho);
+    }
+    if(offlineHandleActivo.includes("e")){
+      right = limitarOffline(offlineRectInicial.right + dx, left + minAncho, rectSelector.width - margen);
+    }
+    if(offlineHandleActivo.includes("n")){
+      top = limitarOffline(offlineRectInicial.top + dy, margen, bottom - minAlto);
+    }
+    if(offlineHandleActivo.includes("s")){
+      bottom = limitarOffline(offlineRectInicial.bottom + dy, top + minAlto, limiteInferior);
+    }
+
+    marco.style.left = `${left}px`;
+    marco.style.top = `${top}px`;
+    marco.style.right = `${Math.max(margen,rectSelector.width-right)}px`;
+    marco.style.bottom = `${Math.max(margen,rectSelector.height-bottom)}px`;
+
+    actualizarEstimacionOffline();
+  }
+
+  function finalizarAjusteOffline(event){
+    if(!offlineHandleActivo) return;
+    if(event){
+      event.preventDefault();
+      event.stopPropagation();
+    }
+    document.getElementById("offlineMarco").classList.remove("ajustando");
+    offlineHandleActivo = null;
+    offlineRectInicial = null;
+    offlinePointerInicial = null;
+    actualizarEstimacionOffline();
+  }
+
+  document.querySelectorAll(".offline-handle").forEach(function(handle){
+    handle.addEventListener("pointerdown",iniciarAjusteOffline,{passive:false});
+    handle.addEventListener("pointermove",moverAjusteOffline,{passive:false});
+    handle.addEventListener("pointerup",finalizarAjusteOffline,{passive:false});
+    handle.addEventListener("pointercancel",finalizarAjusteOffline,{passive:false});
+  });
 
   async function descargarZonaOffline(){
     if(descargaOfflineEnCurso)return;
