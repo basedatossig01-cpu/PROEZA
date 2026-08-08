@@ -567,6 +567,7 @@
     <div id="offlineProgreso" class="offline-progreso">
       <div id="offlineTextoProgreso">Preparando descarga…</div>
       <div class="offline-barra-fondo"><div id="offlineBarra" class="offline-barra"></div></div>
+      <div id="offlineDiagnostico" style="margin-top:8px;padding:8px;border-radius:6px;background:#f7f7f7;font-size:12px;line-height:1.4;display:none;"></div>
     </div>
     <div class="offline-acciones">
       <button id="btnDescargarZona" class="btn-offline-descargar-zona" type="button" onclick="descargarZonaOffline()">Descargar zona</button>
@@ -2534,6 +2535,7 @@
     document.getElementById("offlineProgreso").classList.remove("activo");
     document.getElementById("offlineBarra").style.width = "0%";
     document.getElementById("offlineTextoProgreso").textContent = "Preparando descarga…";
+    ocultarDiagnosticoOffline();
     document.getElementById("btnDescargarZona").disabled = false;
     document.getElementById("btnCancelarOffline").disabled = false;
     document.getElementById("btnCancelarOffline").textContent = "Cancelar";
@@ -2868,6 +2870,35 @@
     return { procesados, fallidos };
   }
 
+
+  function mostrarDiagnosticoOffline(resultado) {
+    const box = document.getElementById("offlineDiagnostico");
+    if (!box) return;
+    box.style.display = "block";
+
+    function linea(nombre, faltantes) {
+      const cantidad = Array.isArray(faltantes) ? faltantes.length : 0;
+      return cantidad === 0
+        ? `✅ <b>${nombre}:</b> OK`
+        : `❌ <b>${nombre}:</b> ${cantidad} recurso(s) faltante(s)`;
+    }
+
+    box.innerHTML = [
+      "<b>Diagnóstico de descarga</b>",
+      linea("Aplicación base", resultado.app || []),
+      linea("CSV / KML", resultado.datos || []),
+      linea("Mapa satelital", resultado.imagery || []),
+      linea("Etiquetas / referencia Esri", resultado.referencia || [])
+    ].join("<br>");
+  }
+
+  function ocultarDiagnosticoOffline() {
+    const box = document.getElementById("offlineDiagnostico");
+    if (!box) return;
+    box.style.display = "none";
+    box.innerHTML = "";
+  }
+
   async function descargarZonaOffline() {
     if (descargaOfflineEnCurso) return;
 
@@ -2947,18 +2978,37 @@
 
       texto.textContent = "Verificando que toda la zona esté almacenada…";
 
-      // Verificación final real del Cache Storage
+      // Verificación final separada por grupo para diagnóstico
       const faltantesApp = await verificarRecursosEnCache(appCache, appRecursos);
-      const faltantesZona = await verificarRecursosEnCache(zonaCache, zonaRecursos);
-      const faltantes = [...faltantesApp, ...faltantesZona];
+      const faltantesDatos = await verificarRecursosEnCache(zonaCache, datosRecursos);
+      const faltantesImagery = await verificarRecursosEnCache(zonaCache, tiles.imagery);
+      const faltantesReferencia = await verificarRecursosEnCache(zonaCache, tiles.referencia);
+
+      const diagnostico = {
+        app: faltantesApp,
+        datos: faltantesDatos,
+        imagery: faltantesImagery,
+        referencia: faltantesReferencia
+      };
+
+      mostrarDiagnosticoOffline(diagnostico);
+
+      const faltantes = [
+        ...faltantesApp,
+        ...faltantesDatos,
+        ...faltantesImagery,
+        ...faltantesReferencia
+      ];
 
       if (faltantes.length > 0) {
         await caches.delete(zonaCacheName);
 
         texto.textContent =
-          "⚠️ Descarga incompleta. La zona NO quedó habilitada para uso sin conexión.";
+          "⚠️ Descarga incompleta. Revisá el diagnóstico para identificar qué está fallando.";
         barra.style.width = "100%";
         barra.style.background = "#c62828";
+
+        console.warn("DIAGNÓSTICO OFFLINE", diagnostico);
 
         btnDescargar.disabled = false;
         btnDescargar.textContent = "Reintentar descarga";
@@ -3008,6 +3058,7 @@
       barra.style.width = "100%";
       barra.style.background = "#00897b";
       texto.textContent = "✅ Zona descargada y verificada para uso sin conexión.";
+      mostrarDiagnosticoOffline({app:[], datos:[], imagery:[], referencia:[]});
 
       btnDescargar.style.display = "none";
       btnCancelar.disabled = false;
