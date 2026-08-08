@@ -562,12 +562,11 @@
   </div>
   <div class="offline-panel">
     <h4>📥 Preparar zona sin conexión</h4>
-    <p>Mové y acercá el mapa hasta que el área de trabajo quede dentro del recuadro. Si necesitás cambiar su forma, arrastrá cualquiera de los cuatro puntos de las esquinas. Se descargarán las imágenes satelitales y los datos necesarios del mapa.</p>
+    <p>Mové y acercá el mapa hasta que el área de trabajo quede dentro del recuadro. Si necesitás cambiar su forma, arrastrá cualquiera de los cuatro puntos de las esquinas. Se descargarán el mapa satelital, el CSV y los KML necesarios para trabajar sin conexión.</p>
     <div id="offlineEstimacion" class="offline-estimacion">Calculando zona…</div>
     <div id="offlineProgreso" class="offline-progreso">
       <div id="offlineTextoProgreso">Preparando descarga…</div>
       <div class="offline-barra-fondo"><div id="offlineBarra" class="offline-barra"></div></div>
-      <div id="offlineDiagnostico" style="margin-top:8px;padding:8px;border-radius:6px;background:#f7f7f7;font-size:12px;line-height:1.4;display:none;"></div>
     </div>
     <div class="offline-acciones">
       <button id="btnDescargarZona" class="btn-offline-descargar-zona" type="button" onclick="descargarZonaOffline()">Descargar zona</button>
@@ -2535,7 +2534,6 @@
     document.getElementById("offlineProgreso").classList.remove("activo");
     document.getElementById("offlineBarra").style.width = "0%";
     document.getElementById("offlineTextoProgreso").textContent = "Preparando descarga…";
-    ocultarDiagnosticoOffline();
     document.getElementById("btnDescargarZona").disabled = false;
     document.getElementById("btnCancelarOffline").disabled = false;
     document.getElementById("btnCancelarOffline").textContent = "Cancelar";
@@ -2764,10 +2762,12 @@
     const app = recursosAppObligatorios();
     const datos = recursosDatosObligatorios();
 
-    const totalTiles = tiles.imagery.length + tiles.referencia.length;
+    // Para uso offline solo se exige el mapa satelital.
+    // La capa de etiquetas/referencia Esri queda fuera de la descarga.
+    const totalTiles = tiles.imagery.length;
     const totalRecursos = totalTiles + app.length + datos.length;
 
-    // Estimación aproximada solo para orientación del técnico.
+    // Estimación aproximada solo del mapa satelital.
     const bytesEstimados = totalTiles * 55 * 1024;
 
     const caja = document.getElementById("offlineEstimacion");
@@ -2784,7 +2784,7 @@
         `Podés ajustar las 4 esquinas manualmente.<br>` +
         `Zoom offline: ${OFFLINE_ZOOM_MIN}–${OFFLINE_ZOOM_MAX}<br>` +
         `Recursos obligatorios: ${totalRecursos}<br>` +
-        `Tamaño aproximado del mapa: ${formatearMBOffline(bytesEstimados)} MB`;
+        `Tamaño aproximado del mapa satelital: ${formatearMBOffline(bytesEstimados)} MB`;
       document.getElementById("btnDescargarZona").disabled = false;
     }
   }
@@ -2870,35 +2870,6 @@
     return { procesados, fallidos };
   }
 
-
-  function mostrarDiagnosticoOffline(resultado) {
-    const box = document.getElementById("offlineDiagnostico");
-    if (!box) return;
-    box.style.display = "block";
-
-    function linea(nombre, faltantes) {
-      const cantidad = Array.isArray(faltantes) ? faltantes.length : 0;
-      return cantidad === 0
-        ? `✅ <b>${nombre}:</b> OK`
-        : `❌ <b>${nombre}:</b> ${cantidad} recurso(s) faltante(s)`;
-    }
-
-    box.innerHTML = [
-      "<b>Diagnóstico de descarga</b>",
-      linea("Aplicación base", resultado.app || []),
-      linea("CSV / KML", resultado.datos || []),
-      linea("Mapa satelital", resultado.imagery || []),
-      linea("Etiquetas / referencia Esri", resultado.referencia || [])
-    ].join("<br>");
-  }
-
-  function ocultarDiagnosticoOffline() {
-    const box = document.getElementById("offlineDiagnostico");
-    if (!box) return;
-    box.style.display = "none";
-    box.innerHTML = "";
-  }
-
   async function descargarZonaOffline() {
     if (descargaOfflineEnCurso) return;
 
@@ -2913,8 +2884,7 @@
     const datosRecursos = recursosDatosObligatorios();
     const zonaRecursos = [
       ...datosRecursos,
-      ...tiles.imagery,
-      ...tiles.referencia
+      ...tiles.imagery
     ];
 
     const todos = Array.from(new Set([...appRecursos, ...zonaRecursos]));
@@ -2978,37 +2948,26 @@
 
       texto.textContent = "Verificando que toda la zona esté almacenada…";
 
-      // Verificación final separada por grupo para diagnóstico
+      // Verificación final estricta:
+      // aplicación + CSV/KML + mapa satelital.
+      // Las etiquetas de referencia Esri NO son requisito offline.
       const faltantesApp = await verificarRecursosEnCache(appCache, appRecursos);
       const faltantesDatos = await verificarRecursosEnCache(zonaCache, datosRecursos);
-      const faltantesImagery = await verificarRecursosEnCache(zonaCache, tiles.imagery);
-      const faltantesReferencia = await verificarRecursosEnCache(zonaCache, tiles.referencia);
-
-      const diagnostico = {
-        app: faltantesApp,
-        datos: faltantesDatos,
-        imagery: faltantesImagery,
-        referencia: faltantesReferencia
-      };
-
-      mostrarDiagnosticoOffline(diagnostico);
+      const faltantesMapa = await verificarRecursosEnCache(zonaCache, tiles.imagery);
 
       const faltantes = [
         ...faltantesApp,
         ...faltantesDatos,
-        ...faltantesImagery,
-        ...faltantesReferencia
+        ...faltantesMapa
       ];
 
       if (faltantes.length > 0) {
         await caches.delete(zonaCacheName);
 
         texto.textContent =
-          "⚠️ Descarga incompleta. Revisá el diagnóstico para identificar qué está fallando.";
+          "⚠️ No se pudo completar la descarga. Reintentá mientras tengas conexión.";
         barra.style.width = "100%";
         barra.style.background = "#c62828";
-
-        console.warn("DIAGNÓSTICO OFFLINE", diagnostico);
 
         btnDescargar.disabled = false;
         btnDescargar.textContent = "Reintentar descarga";
@@ -3019,7 +2978,7 @@
       }
 
       const estimacion = await estimarUsoStorage();
-      const totalTiles = tiles.imagery.length + tiles.referencia.length;
+      const totalTiles = tiles.imagery.length;
       const bytesEstimados = totalTiles * 55 * 1024;
 
       const zona = {
@@ -3058,7 +3017,6 @@
       barra.style.width = "100%";
       barra.style.background = "#00897b";
       texto.textContent = "✅ Zona descargada y verificada para uso sin conexión.";
-      mostrarDiagnosticoOffline({app:[], datos:[], imagery:[], referencia:[]});
 
       btnDescargar.style.display = "none";
       btnCancelar.disabled = false;
